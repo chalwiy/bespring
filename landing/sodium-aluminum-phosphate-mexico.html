@@ -533,47 +533,59 @@
     })();
 
     // 2. 监听表单提交事件
-    document.getElementById('contact-form-emailjs').addEventListener('submit', function(event) {
-        event.preventDefault(); // 阻止表单默认提交行为 (页面刷新)
+document.getElementById('contact-form-emailjs').addEventListener('submit', function(event) {
+    event.preventDefault(); // 阻止页面刷新
 
-        const form = this;
-        const btn = document.getElementById('submit-button');
-        const statusMessage = document.getElementById('form-status');
+    const form = this;
+    const btn = form.querySelector('button[type="submit"]');
+    
+    // 创建状态提示元素，如果没有可以自己添加
+    let statusMessage = document.getElementById('form-status');
+    if (!statusMessage) {
+        statusMessage = document.createElement('div');
+        statusMessage.id = 'form-status';
+        statusMessage.style.textAlign = 'center';
+        statusMessage.style.marginTop = '10px';
+        form.appendChild(statusMessage);
+    }
 
-        // 禁用按钮并显示加载状态
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-        statusMessage.style.color = '#f39c12'; // 橙色：加载中
-        statusMessage.textContent = 'Processing your inquiry... Please wait.';
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    statusMessage.style.color = '#f39c12';
+    statusMessage.textContent = 'Processing your inquiry... Please wait.';
 
-        // 3. 发送表单数据
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form)
-            .then(() => {
-                // 成功回调
-                statusMessage.style.color = 'var(--primary-color)';
-                statusMessage.textContent = 'Success! Your inquiry has been sent. We will reply within 24 hours.';
-                btn.textContent = 'Inquiry Sent!';
-                
-                // 清空表单并重置按钮状态
-                form.reset(); 
-                setTimeout(() => {
-                    btn.textContent = 'Send Inquiry';
-                    btn.disabled = false;
-                    statusMessage.textContent = '';
-                }, 6000); // 6秒后恢复按钮
-            }, (error) => {
-                // 失败回调
-                console.error('EmailJS Error:', error);
-                statusMessage.style.color = '#e74c3c'; // 红色：错误
-                statusMessage.textContent = `Error! Failed to send inquiry. Please try again or use WhatsApp. Error Code: ${error.status || 'N/A'}`;
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form)
+        .then(() => {
+            // 成功回调
+            statusMessage.style.color = 'var(--primary-color)';
+            statusMessage.textContent = 'Success! Your inquiry has been sent. We will reply within 24 hours.';
+            btn.textContent = 'Inquiry Sent!';
+            
+            // ✅ 添加 Google Ads 转化事件
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17683066142/O7lFCNSbp9AbEJ7a-O9B'
+            });
+
+            form.reset(); 
+            setTimeout(() => {
                 btn.textContent = 'Send Inquiry';
                 btn.disabled = false;
-            });
-    });
+                statusMessage.textContent = '';
+            }, 6000);
+        }, (error) => {
+            console.error('EmailJS Error:', error);
+            statusMessage.style.color = '#e74c3c';
+            statusMessage.textContent = `Error! Failed to send inquiry. Please try again or use WhatsApp. Error Code: ${error.status || 'N/A'}`;
+            btn.textContent = 'Send Inquiry';
+            btn.disabled = false;
+        });
+});
+
 </script>
 
 </body>
 </html>
+
 
 
 
