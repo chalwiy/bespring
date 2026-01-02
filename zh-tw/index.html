@@ -181,45 +181,58 @@
 <section class="crc-banner align-left-center" role="region" aria-label="首頁橫幅">
   <div class="banner-track">
     
-    <!-- Banner 1: 公司 -->
-    <div class="banner-slide" style="background-image:url('../images/banner1.jpg');" role="group" aria-label="幻燈片 1 / 3">
-      <div class="banner-overlay"></div>
-      <div class="container banner-content">
-        <div class="banner-inner">
-          <span class="banner-pretitle">自 1970 年代起 · 全球信賴</span>
-          <h1>磷酸鹽與添加劑創新方案領航者</h1>
-          <p>憑藉超過 40 年的專業經驗，百泉化工為 60 多個國家的合作夥伴提供可靠的原料與添加劑。</p>
-          <a href="companyprofile.html" class="banner-button">了解我們的故事</a>
-        </div>
-      </div>
+<!-- Banner 1: 公司 -->
+<div class="banner-slide" style="background-image:url('../images/banner1.jpg');" role="group" aria-label="Slide 1 of 4">
+  <div class="banner-overlay"></div>
+  <div class="container banner-content">
+    <div class="banner-inner">
+        <span class="banner-pretitle">始於 1970 年代 · 化工配料領域經驗</span>
+        <h1>磷酸鹽與添加劑解決方案</h1>
+        <p>憑藉 40 餘年的產業經驗，百泉化工為全球 60 多個國家的食品、飼料、清潔及工業製造商提供磷酸鹽與添加劑產品。</p>
+        <a href="companyprofile.html" class="banner-button">認識百泉化工</a>
     </div>
+  </div>
+</div>
 
-    <!-- Banner 2: 分子式與試管 -->
-    <div class="banner-slide" style="background-image:url('../images/banner2.jpg');" role="group" aria-label="幻燈片 2 / 3">
-      <div class="banner-overlay"></div>
-      <div class="container banner-content">
-        <div class="banner-inner">
-          <span class="banner-pretitle">科學 · 創新 · 品質</span>
-          <h2>多領域的先進化學解決方案</h2>
-          <p>從食品與飼料添加劑到水處理及工業應用，我們提供高性能的磷酸鹽與專用化學品解決方案。</p>
-          <a href="Products.html" class="banner-button">探索我們的產品</a>
-        </div>
-      </div>
+<!-- Banner 2: 產品 -->
+<div class="banner-slide" style="background-image:url('../images/banner2.jpg');" role="group" aria-label="Slide 2 of 4">
+  <div class="banner-overlay"></div>
+  <div class="container banner-content">
+    <div class="banner-inner">
+      <span class="banner-pretitle">一體化供應鏈 · 質優高效</span>
+      <h2>化工原料一站式採購夥伴</h2>
+        <p>我們擁有完善且高品質的產品體系，穩定供應 100 余種化工產品，支持一站式採購，助力客戶提升採購效率，節省採購成本。</p>
+      <a href="Products.html" class="banner-button">瀏覽產品項目</a>
     </div>
+  </div>
+</div>
 
-    <!-- Banner 3: 化學品樣品 -->
-    <div class="banner-slide" style="background-image:url('../images/banner3.jpg');" role="group" aria-label="幻燈片 3 / 3">
-      <div class="banner-overlay"></div>
-      <div class="container banner-content">
-        <div class="banner-inner">
-          <span class="banner-pretitle">全球佈局 · 穩定供應</span>
-          <h2>全面產品組合，可靠交付</h2>
-          <p>涵蓋廣泛的磷酸鹽與添加劑，結合國際物流與嚴格品質管控，確保產品穩定可靠，值得信賴。</p>
-          <a href="Industries.html" class="banner-button">查看應用案例</a>
-        </div>
-      </div>
+<!-- Banner 3: 行業應用 -->
+<div class="banner-slide" style="background-image:url('../images/banner3.jpg');" role="group" aria-label="Slide 3 of 4">
+  <div class="banner-overlay"></div>
+  <div class="container banner-content">
+    <div class="banner-inner">
+        <span class="banner-pretitle">涵蓋多行業 · 精準對應</span>
+        <h2>食品、飼料及工業領域解決方案</h2>
+        <p>涵蓋食品加工、動物營養、水處理及礦業等應用領域，為不同生產需求提供量身定制的化工原料支持。</p>
+        <a href="Industries.html" class="banner-button">查看應用行業</a>
     </div>
-    
+  </div>
+</div>
+
+<!-- Banner 4: 供應鏈 -->
+<div class="banner-slide" style="background-image:url('../images/banner4.jpg');" role="group" aria-label="Slide 4 of 4">
+  <div class="banner-overlay"></div>
+  <div class="container banner-content">
+    <div class="banner-inner">
+        <span class="banner-pretitle">多地倉儲 · 高效配送</span>
+        <h2>穩定供應 · 可靠交付</h2>
+        <p>依托自有及合作生產基地、多地港口DCC倉庫和優化物流網絡，保障穩定供貨與快速發運，並提供持續技術支持，助力長期合作。</p>
+        <a href="contact.html" class="banner-button">聯繫銷售</a>
+    </div>
+  </div>
+</div>
+
   </div>
 
   <!-- Banner Controls -->
@@ -313,7 +326,7 @@ const slides = document.querySelectorAll('.banner-slide');
 const dotsContainer = document.querySelector('.banner-dots');
 let currentSlide = 0;
 let slideInterval;
-const autoSlideDelay = 5000;
+const autoSlideDelay = 10000;
 
 // 初始化圆点
 slides.forEach((_, i) => {
