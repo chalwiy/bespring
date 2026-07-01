@@ -34,9 +34,15 @@
   <meta name="twitter:site" content="@BespringChem">
 
   <!-- Multi-language (Hreflang) -->
-  <link rel="alternate" href="https://www.bespringchem.com" hreflang="en">
-  <link rel="alternate" href="https://www.bespringchem.com/zh-cn/" hreflang="zh-CN">
-  <link rel="alternate" href="https://www.bespringchem.com/zh-tw/" hreflang="zh-TW">
+  <link rel="alternate" hreflang="en" href="https://www.bespringchem.com/">
+<link rel="alternate" hreflang="zh-CN" href="https://www.bespringchem.com/zh-cn/">
+<link rel="alternate" hreflang="zh-TW" href="https://www.bespringchem.com/zh-tw/">
+<link rel="alternate" hreflang="ru" href="https://www.bespringchem.com/ru/">
+<link rel="alternate" hreflang="es" href="https://www.bespringchem.com/es/">
+<link rel="alternate" hreflang="pt" href="https://www.bespringchem.com/pt/">
+<link rel="alternate" hreflang="de" href="https://www.bespringchem.com/de/">
+<link rel="alternate" hreflang="ar" href="https://www.bespringchem.com/ar/">
+<link rel="alternate" hreflang="x-default" href="https://www.bespringchem.com/">
 
   <!-- Favicon & App Icons -->
   <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
@@ -45,6 +51,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/localized-pages.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <!-- Performance Optimization -->
@@ -114,7 +121,7 @@
 
 
 
-<body>
+<body class="localized-refresh localized-home">
 
 <!-- =================== Topbar =================== -->
 <div class="topbar">
@@ -131,11 +138,7 @@
       <a class="topbar-link">
         <span>語言：</span>
       </a>
-<div class="bs-seo-language">
-    <a href="../index.html">EN</a>
-    <a href="../zh-cn/index.html">简</a>
-    <a href="index.html" class="active">繁</a>
-</div>
+<div class="bs-seo-language" aria-label="Language selection"><a href="../index.html" lang="en">EN</a><a href="../zh-cn/index.html" lang="zh-CN">简</a><a href="index.html" lang="zh-TW" class="active" aria-current="page">繁</a><a href="../es/index.html" lang="es">ES</a><a href="../pt/index.html" lang="pt">PT</a><a href="../ru/index.html" lang="ru">RU</a><a href="../de/index.html" lang="de">DE</a><a href="../ar/index.html" lang="ar">AR</a></div>
     </div>
   </div>
 </div>

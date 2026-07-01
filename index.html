@@ -40,6 +40,11 @@ content="Bespring Chemical is a global supplier of food ingredients, feed additi
 <link rel="alternate" hreflang="en" href="https://www.bespringchem.com/">
 <link rel="alternate" hreflang="zh-CN" href="https://www.bespringchem.com/zh-cn/">
 <link rel="alternate" hreflang="zh-TW" href="https://www.bespringchem.com/zh-tw/">
+<link rel="alternate" hreflang="ru" href="https://www.bespringchem.com/ru/">
+<link rel="alternate" hreflang="es" href="https://www.bespringchem.com/es/">
+<link rel="alternate" hreflang="pt" href="https://www.bespringchem.com/pt/">
+<link rel="alternate" hreflang="de" href="https://www.bespringchem.com/de/">
+<link rel="alternate" hreflang="ar" href="https://www.bespringchem.com/ar/">
 <link rel="alternate" hreflang="x-default" href="https://www.bespringchem.com/">
 
   <!-- Favicon & App Icons -->
@@ -49,6 +54,8 @@ content="Bespring Chemical is a global supplier of food ingredients, feed additi
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bs-industry-applications.css">
+  <link rel="stylesheet" href="css/application-cases.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <!-- Performance Optimization -->
@@ -62,9 +69,6 @@ content="Bespring Chemical is a global supplier of food ingredients, feed additi
   "@context": "https://schema.org",
   "@graph": [
 
-    /* =========================
-       1. ORGANIZATION（增强版）
-    ========================= */
     {
       "@type": ["Organization", "Corporation"],
       "@id": "https://www.bespringchem.com/#organization",
@@ -107,7 +111,6 @@ content="Bespring Chemical is a global supplier of food ingredients, feed additi
         "https://www.facebook.com/profile.php?id=61560682190445"
       ],
 
-      /* GEO / AI核心字段 */
       "knowsAbout": [
         "Food Grade Phosphates",
         "Feed Additives",
@@ -133,9 +136,6 @@ content="Bespring Chemical is a global supplier of food ingredients, feed additi
     },
 
 
-    /* =========================
-       2. WEBSITE（加SearchAction）
-    ========================= */
     {
       "@type": "WebSite",
       "@id": "https://www.bespringchem.com/#website",
@@ -153,9 +153,6 @@ content="Bespring Chemical is a global supplier of food ingredients, feed additi
     },
 
 
-    /* =========================
-       3. WEBPAGE（首页语义增强）
-    ========================= */
     {
       "@type": "WebPage",
       "@id": "https://www.bespringchem.com/#webpage",
@@ -176,9 +173,6 @@ content="Bespring Chemical is a global supplier of food ingredients, feed additi
     },
 
 
-    /* =========================
-       4. PRODUCT CATEGORY LIST（增强版ItemList）
-    ========================= */
     {
       "@type": "ItemList",
       "@id": "https://www.bespringchem.com/#product-categories",
@@ -225,28 +219,22 @@ content="Bespring Chemical is a global supplier of food ingredients, feed additi
     },
 
 
-    /* =========================
-       5. FEATURED PRODUCTS（增强AI可读性）
-    ========================= */
     {
       "@type": "ItemList",
       "@id": "https://www.bespringchem.com/#featured-products",
       "name": "Key Chemical Products",
 
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Sodium Tripolyphosphate (STPP)" },
-        { "@type": "ListItem", "position": 2, "name": "Sodium Hexametaphosphate (SHMP)" },
-        { "@type": "ListItem", "position": 3, "name": "Monocalcium Phosphate (MCP)" },
-        { "@type": "ListItem", "position": 4, "name": "Dicalcium Phosphate (DCP)" },
+        { "@type": "ListItem", "position": 1, "name": "Sodium Tripolyphosphate (STPP)", "item": "https://www.bespringchem.com/products/food-ingredients/sodium-tripolyphosphate-stpp.html" },
+        { "@type": "ListItem", "position": 2, "name": "Sodium Hexametaphosphate (SHMP)", "item": "https://www.bespringchem.com/products/food-ingredients/sodium-hexametaphosphate-shmp.html" },
+        { "@type": "ListItem", "position": 3, "name": "Monocalcium Phosphate (MCP)", "item": "https://www.bespringchem.com/products/food-ingredients/monocalcium-phosphate-mcp.html" },
+        { "@type": "ListItem", "position": 4, "name": "Dicalcium Phosphate (DCP)", "item": "https://www.bespringchem.com/products/food-ingredients/dicalcium-phosphate-dcp.html" },
         { "@type": "ListItem", "position": 5, "name": "Calcium Propionate" },
         { "@type": "ListItem", "position": 6, "name": "Sodium Benzoate" }
       ]
     },
 
 
-    /* =========================
-       6. FAQ（扩展AI引用能力）
-    ========================= */
     {
       "@type": "FAQPage",
       "@id": "https://www.bespringchem.com/#faq",
@@ -300,9 +288,6 @@ content="Bespring Chemical is a global supplier of food ingredients, feed additi
     },
 
 
-    /* =========================
-       7. BREADCRUMB（SEO增强）
-    ========================= */
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -364,11 +349,7 @@ content="Bespring Chemical is a global supplier of food ingredients, feed additi
                 WhatsApp
             </a>
 
-            <div class="bs-seo-language">
-                <a href="index.html" class="active">EN</a>
-                <a href="./zh-cn/index.html">简</a>
-                <a href="./zh-tw/index.html">繁</a>
-            </div>
+            <div class="bs-seo-language" aria-label="Language selection"><a href="index.html" lang="en" class="active" aria-current="page">EN</a><a href="zh-cn/index.html" lang="zh-CN">简</a><a href="zh-tw/index.html" lang="zh-TW">繁</a><a href="es/index.html" lang="es">ES</a><a href="pt/index.html" lang="pt">PT</a><a href="ru/index.html" lang="ru">RU</a><a href="de/index.html" lang="de">DE</a><a href="ar/index.html" lang="ar">AR</a></div>
 
         </div>
 
@@ -480,12 +461,13 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
   <div class="banner-dots" aria-label="Slide Indicators"></div>
 </section>  
     
-<section class="bs-prod" id="product-center">
+<section class="bs-prod bshp-products" id="product-center">
 
   <div class="container">
 
     <!-- Header -->
     <div class="bs-prod__header">
+      <span class="bshp-products__eyebrow">Core product portfolio</span>
       <h2 class="bs-prod__title">
         Product Center
       </h2>
@@ -542,8 +524,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
     </div>
 
     <div class="bs-prod__body">
-      <h3 class="bs-prod__name"> Sodium Tripolyphosphate&nbsp;</h3>
-      <h3 class="bs-prod__name"><span>STPP</span> </h3>
+      <h3 class="bs-prod__name">Sodium Tripolyphosphate <span>(STPP)</span></h3>
 <p class="bs-prod__cas">CAS: 7758-29-4</p>
 
       <p class="bs-prod__text">
@@ -559,8 +540,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 </div>
 
       <div class="bs-prod__actions">
-        <a href="products/food-ingredients.html" class="bs-prod__btn bs-prod__btn--primary">View</a>
-        <a href="contact.html" class="bs-prod__btn bs-prod__btn--outline">RFQ</a>
+        <a href="products/food-ingredients/sodium-tripolyphosphate-stpp.html" class="bs-prod__btn bs-prod__btn--primary">View product <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </article>
@@ -576,13 +556,12 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
     <div class="bs-prod__img">
       <img 
         src="images/shmp-sodium-hexametaphosphate-water-treatment-chemical-china.jpg"
-        alt="SHMP Sodium Hexametaphosphate CAS 10124-56-8 water treatment chemical and detergent builder China supplier"
+        alt="Food grade SHMP sodium hexametaphosphate CAS 10124-56-8 in 25 kg export bag"
         loading="lazy">
     </div>
 
     <div class="bs-prod__body">
-      <h3 class="bs-prod__name"> Sodium Hexametaphosphate&nbsp;</h3>
-      <h3 class="bs-prod__name"><span>SHMP</span> </h3>
+      <h3 class="bs-prod__name">Sodium Hexametaphosphate <span>(SHMP)</span></h3>
 <p class="bs-prod__cas">CAS: 10124-56-8</p>
 
       <p class="bs-prod__text">
@@ -598,8 +577,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 </div>
 
       <div class="bs-prod__actions">
-        <a href="products/water-treatment.html" class="bs-prod__btn bs-prod__btn--primary">View</a>
-        <a href="contact.html" class="bs-prod__btn bs-prod__btn--outline">RFQ</a>
+        <a href="products/food-ingredients/sodium-hexametaphosphate-shmp.html" class="bs-prod__btn bs-prod__btn--primary">View product <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </article>
@@ -607,7 +585,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 <!-- ================= TKPP ================= -->
 
 <article class="bs-prod__card"
-  data-product="Potassium Pyrophosphate (TKPP)"
+  data-product="Tetrapotassium Pyrophosphate (TKPP)"
   data-cas="7320-34-5"
   data-industry="food-processing,seafood-processing,dairy-products,water-treatment,industrial-cleaning"
   data-function="chelating-agent,emulsifier,buffering-agent,water-retention,scale-control">
@@ -621,11 +599,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 
   <div class="bs-prod__body">
 <h3 class="bs-prod__name">
-  Potassium Pyrophosphate
-</h3>
-
-<h3 class="bs-prod__name">
-  <span>TKPP</span>
+  <a href="products/food-ingredients/tetrapotassium-pyrophosphate-tkpp.html">Tetrapotassium Pyrophosphate <span>(TKPP)</span></a>
 </h3>
 
 <p class="bs-prod__cas">
@@ -645,8 +619,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 </div>
 
 <div class="bs-prod__actions">
-  <a href="products/food-ingredients.html" class="bs-prod__btn bs-prod__btn--primary">View</a>
-  <a href="contact.html" class="bs-prod__btn bs-prod__btn--outline">RFQ</a>
+  <a href="products/food-ingredients/tetrapotassium-pyrophosphate-tkpp.html" class="bs-prod__btn bs-prod__btn--primary">View product <span aria-hidden="true">→</span></a>
 </div>
   </div>
 
@@ -668,8 +641,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 
   <div class="bs-prod__body">
 
-    <h3 class="bs-prod__name"> Sodium Aluminum Phosphate&nbsp;</h3>
-    <h3 class="bs-prod__name"><span>SALP</span> </h3>
+    <h3 class="bs-prod__name"> Sodium Aluminum Phosphate <span>(SALP)</span> </h3>
 <p class="bs-prod__cas">CAS: 7785-88-8</p>
 
     <p class="bs-prod__text">
@@ -685,8 +657,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
     </div>
 
     <div class="bs-prod__actions">
-      <a href="products/food-ingredients.html" class="bs-prod__btn bs-prod__btn--primary">View</a>
-      <a href="contact.html" class="bs-prod__btn bs-prod__btn--outline">RFQ</a>
+      <a href="products/food-ingredients/sodium-aluminum-phosphate-salp.html" class="bs-prod__btn bs-prod__btn--primary" aria-label="View food grade sodium aluminum phosphate SALP product details">View product <span aria-hidden="true">→</span></a>
     </div>
 
   </div>
@@ -708,8 +679,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 
   <div class="bs-prod__body">
 
-    <h3 class="bs-prod__name"> Dicalcium Phosphate&nbsp;</h3>
-    <h3 class="bs-prod__name"><span>DCP</span> </h3>
+    <h3 class="bs-prod__name"> Dicalcium Phosphate <span>(DCP)</span> </h3>
 <p class="bs-prod__cas">
   CAS: 7757-93-9 / 7789-77-7
 </p>
@@ -727,8 +697,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
     </div>
 
     <div class="bs-prod__actions">
-      <a href="products/animal-nutrition.html" class="bs-prod__btn bs-prod__btn--primary">View</a>
-      <a href="contact.html" class="bs-prod__btn bs-prod__btn--outline">RFQ</a>
+      <a href="products/food-ingredients/dicalcium-phosphate-dcp.html" class="bs-prod__btn bs-prod__btn--primary" aria-label="View food grade dicalcium phosphate DCP product details">View product <span aria-hidden="true">→</span></a>
     </div>
 
   </div>
@@ -750,8 +719,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 
   <div class="bs-prod__body">
 
-    <h3 class="bs-prod__name"> Monocalcium Phosphate&nbsp;</h3>
-    <h3 class="bs-prod__name"><span>MCP</span></h3>
+    <h3 class="bs-prod__name"> Monocalcium Phosphate <span>(MCP)</span></h3>
 
     <p class="bs-prod__cas">
       CAS: 7758-23-8
@@ -770,8 +738,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
     </div>
 
     <div class="bs-prod__actions">
-      <a href="products/animal-nutrition.html" class="bs-prod__btn bs-prod__btn--primary">View</a>
-      <a href="contact.html" class="bs-prod__btn bs-prod__btn--outline">RFQ</a>
+      <a href="products/food-ingredients/monocalcium-phosphate-mcp.html" class="bs-prod__btn bs-prod__btn--primary" aria-label="View food grade monocalcium phosphate MCP product details">View product <span aria-hidden="true">→</span></a>
     </div>
 
   </div>
@@ -793,7 +760,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
   </div>
 
   <div class="bs-prod__body">
-    <h3 class="bs-prod__name"> Sodium Carboxymethyl Cellulose <span>CMC</span> </h3>
+    <h3 class="bs-prod__name"> Sodium Carboxymethyl Cellulose <span>(CMC)</span> </h3>
 <p class="bs-prod__cas">CAS: 9004-32-4</p>
 
 <p class="bs-prod__text">
@@ -802,7 +769,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 
 <div class="bs-prod__tags">
   <span>Food Ingredients</span>
-  <span>etergent Manufacturing</span>  
+  <span>Detergent Manufacturing</span>  
   <span>Industrial Chemicals</span>
   <span>Mining Chemicals</span>
   <span>Paper Making</span>  
@@ -810,8 +777,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 </div>
 
 <div class="bs-prod__actions">
-  <a href="products/food-ingredients.html" class="bs-prod__btn bs-prod__btn--primary">View</a>
-  <a href="contact.html" class="bs-prod__btn bs-prod__btn--outline">RFQ</a>
+  <a href="products/food-ingredients/sodium-carboxymethyl-cellulose-cmc.html" class="bs-prod__btn bs-prod__btn--primary" aria-label="View sodium carboxymethyl cellulose CMC product details">View product <span aria-hidden="true">→</span></a>
 </div>
   </div>
 </article>
@@ -832,8 +798,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
     </div>
 
     <div class="bs-prod__body">
-      <h3 class="bs-prod__name"> Calcium Propionate&nbsp;</h3>
-      <h3 class="bs-prod__name"><span>CP</span> </h3>
+      <h3 class="bs-prod__name"> Calcium Propionate <span>(CP)</span> </h3>
 <p class="bs-prod__cas">CAS: 4075-81-4</p>
 
       <p class="bs-prod__text">
@@ -849,8 +814,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
 </div>
 
       <div class="bs-prod__actions">
-        <a href="products/food-ingredients.html" class="bs-prod__btn bs-prod__btn--primary">View</a>
-        <a href="contact.html" class="bs-prod__btn bs-prod__btn--outline">RFQ</a>
+        <a href="products/food-ingredients/calcium-propionate.html" class="bs-prod__btn bs-prod__btn--primary" aria-label="View food grade calcium propionate product details">View product <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </article>
@@ -895,8 +859,7 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
     </div>
 
     <div class="bs-prod__actions">
-      <a href="products/food-ingredients.html" class="bs-prod__btn bs-prod__btn--primary">View</a>
-      <a href="contact.html" class="bs-prod__btn bs-prod__btn--outline">RFQ</a>
+      <a href="products/food-ingredients.html" class="bs-prod__btn bs-prod__btn--primary">View product <span aria-hidden="true">→</span></a>
     </div>
 
   </div>
@@ -914,15 +877,16 @@ Bespring Chemical is a China-based manufacturer and global supplier of food-grad
   </div>
 </section>   
 
-<section class="bs-company-split">
+<section class="bs-company-split bshp-company">
 
   <div class="bs-company-split__container">
 
     <!-- LEFT CONTENT -->
     <div class="bs-company-split__content">
 
+<span class="bshp-company__eyebrow">Who We Are</span>
 <h2 class="bs-company-split__title">
-  Who We Are
+  Manufacturing Roots.<br>Global Reach.
 </h2>
         
 <p class="bs-company-split__desc">
@@ -954,6 +918,10 @@ Bespring Chemical is a China-based manufacturer and global supplier of phosphate
           
       </div>
 
+      <a href="about/company-profile.html" class="bshp-company__link">
+        Discover our story <span aria-hidden="true">→</span>
+      </a>
+
     </div>
 
     <!-- RIGHT IMAGE -->
@@ -964,102 +932,216 @@ Bespring Chemical is a China-based manufacturer and global supplier of phosphate
         alt="Bespring Chemical phosphate manufacturing and global export logistics"
         class="bs-company-split__img">
 
+      <div class="bshp-company__badge" aria-label="Manufacturing experience since the 1970s">
+        <strong>50+</strong>
+        <span>Years of<br>experience</span>
+      </div>
+
     </div>
 
   </div>
 
 </section>  
-    
-<section class="bs-case" id="industry-cases">
 
+<section class="bsia-industries" id="industry-applications" aria-labelledby="bsia-industries-title">
   <div class="container">
-
-    <!-- Header -->
-    <div class="bs-case__header">
-      <h2 class="bs-case__title">Application Cases</h2>
-<p class="bs-case__subtitle">
-  Application cases of Bespring Chemical’s phosphate-based ingredients and industrial chemical raw materials.
-</p>
-    </div>
-
-    <!-- Slider -->
-    <div class="bs-case__viewport">
-
-      <div class="bs-case__track">
-
-        <!-- Case 1 -->
-        <article class="bs-case__card">
-          <div class="bs-case__img">
-            <img src="images/case-food-meat.jpg" alt="Food grade STPP for meat processing industry Europe">
-          </div>
-
-          <div class="bs-case__content">
-            <span class="bs-case__tag">Meat Processing</span>
-
-            <h3 class="bs-case__name">
-              Food Grade STPP Supply for Meat Processing Industry
-            </h3>
-
-            <p class="bs-case__text">
-              Supplying food-grade sodium tripolyphosphate (STPP) to meat processing manufacturers, improving water retention, texture stability, and processing yield in poultry and red meat products.
-            </p>
-
-            <a href="#" class="bs-case__link">Learn More →</a>
-          </div>
-        </article>
-
-        <!-- Case 2 -->
-        <article class="bs-case__card">
-          <div class="bs-case__img">
-            <img src="images/case-food-seafood.jpg" alt="Food phosphate SHMP seafood processing Asia">
-          </div>
-
-          <div class="bs-case__content">
-            <span class="bs-case__tag">Seafood Processing</span>
-
-            <h3 class="bs-case__name">
-              SHMP Supply for Seafood Processing Industry
-            </h3>
-
-            <p class="bs-case__text">
-              Providing sodium hexametaphosphate (SHMP) to seafood processors, supporting anti-oxidation, chelation control, and improved product stability during freezing and storage.
-            </p>
-
-            <a href="#" class="bs-case__link">Learn More →</a>
-          </div>
-        </article>
-
-        <!-- Case 3 -->
-        <article class="bs-case__card">
-          <div class="bs-case__img">
-            <img src="images/case-food-bakery.jpg" alt="Food preservatives calcium propionate bakery industry South America">
-          </div>
-
-          <div class="bs-case__content">
-            <span class="bs-case__tag">Bakery & Beverage</span>
-
-            <h3 class="bs-case__name">
-              Food Preservatives Supply for Bakery Industry
-            </h3>
-
-            <p class="bs-case__text">
-              Supplying calcium propionate and sodium benzoate to bakery manufacturers, extending shelf life and improving microbial stability in bread and baked food products.
-            </p>
-
-            <a href="#" class="bs-case__link">Learn More →</a>
-          </div>
-        </article>
-
+    <div class="bsia-industries__intro">
+      <div class="bsia-industries__heading">
+        <span class="bsia-industries__eyebrow">Solutions by industry</span>
+        <h2 class="bsia-industries__title" id="bsia-industries-title">Ingredients That Work in Your Application</h2>
       </div>
-
+      <p class="bsia-industries__lead">
+        Start with your production challenge. Explore ingredient functions, typical applications, and recommended products for six industries we serve.
+      </p>
     </div>
 
-    <!-- Controls -->
-    <div class="bs-case__controls">
-      <button class="bs-case__btn bs-case__prev">‹</button>
-      <button class="bs-case__btn bs-case__next">›</button>
+    <div class="bsia-industries__grid">
+      <a class="bsia-industries__card bsia-industries__card--featured" href="solutions/food-industry-solutions.html">
+        <img class="bsia-industries__image" src="images/food-ingredients.jpg" alt="Food ingredients for meat, seafood, bakery, dairy and beverage processing" loading="lazy">
+        <span class="bsia-industries__shade" aria-hidden="true"></span>
+        <span class="bsia-industries__content">
+          <span class="bsia-industries__number">01</span>
+          <span class="bsia-industries__name">Food Processing</span>
+          <span class="bsia-industries__description">Texture, shelf life, water retention and formulation stability.</span>
+          <span class="bsia-industries__link">Explore solutions <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+
+      <a class="bsia-industries__card" href="solutions/animal-nutrition-solutions.html">
+        <img class="bsia-industries__image" src="images/animal-nutrition.jpg" alt="Mineral ingredients and feed additives for animal nutrition" loading="lazy">
+        <span class="bsia-industries__shade" aria-hidden="true"></span>
+        <span class="bsia-industries__content">
+          <span class="bsia-industries__number">02</span>
+          <span class="bsia-industries__name">Animal Nutrition</span>
+          <span class="bsia-industries__description">Bioavailable mineral sources for feed and premix production.</span>
+          <span class="bsia-industries__link">Explore solutions <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+
+      <a class="bsia-industries__card" href="solutions/industrial-cleaning-solutions.html">
+        <img class="bsia-industries__image" src="images/homecare-cleaning.jpg" alt="Ingredients for home care and industrial cleaning formulations" loading="lazy">
+        <span class="bsia-industries__shade" aria-hidden="true"></span>
+        <span class="bsia-industries__content">
+          <span class="bsia-industries__number">03</span>
+          <span class="bsia-industries__name">Cleaning &amp; Detergents</span>
+          <span class="bsia-industries__description">Builders, chelants and performance aids for cleaning systems.</span>
+          <span class="bsia-industries__link">Explore solutions <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+
+      <a class="bsia-industries__card" href="solutions/water-treatment-solutions.html">
+        <img class="bsia-industries__image" src="images/water-treatment.jpg" alt="Chemical solutions for industrial and municipal water treatment" loading="lazy">
+        <span class="bsia-industries__shade" aria-hidden="true"></span>
+        <span class="bsia-industries__content">
+          <span class="bsia-industries__number">04</span>
+          <span class="bsia-industries__name">Water Treatment</span>
+          <span class="bsia-industries__description">Scale control, softening and process-water conditioning.</span>
+          <span class="bsia-industries__link">Explore solutions <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+        
+      <a class="bsia-industries__card" href="solutions/mining-solutions.html">
+        <img class="bsia-industries__image" src="images/mining.jpg" alt="Process chemicals for mining and mineral processing" loading="lazy">
+        <span class="bsia-industries__shade" aria-hidden="true"></span>
+        <span class="bsia-industries__content">
+          <span class="bsia-industries__number">05</span>
+          <span class="bsia-industries__name">Mining &amp; Minerals</span>
+          <span class="bsia-industries__description">Process chemicals supporting separation and ore treatment.</span>
+          <span class="bsia-industries__link">Explore solutions <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+
+      <a class="bsia-industries__card" href="solutions/agriculture-solutions.html">
+        <img class="bsia-industries__image" src="images/agriculture.jpg" alt="Phosphate and fertilizer raw materials for agriculture" loading="lazy">
+        <span class="bsia-industries__shade" aria-hidden="true"></span>
+        <span class="bsia-industries__content">
+          <span class="bsia-industries__number">06</span>
+          <span class="bsia-industries__name">Agriculture</span>
+          <span class="bsia-industries__description">Nutrient inputs and raw materials for fertilizer production.</span>
+          <span class="bsia-industries__link">Explore solutions <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+    
+<section class="bs-case" id="industry-cases" aria-labelledby="application-cases-title">
+  <div class="container">
+    <div class="bs-case__header">
+      <div>
+        <span class="bs-case__eyebrow">From ingredient to outcome</span>
+        <h2 class="bs-case__title" id="application-cases-title">Application Cases</h2>
+      </div>
+      <p class="bs-case__subtitle">Explore how Bespring ingredients address practical formulation and process needs across food, feed, water treatment, and industrial manufacturing.</p>
     </div>
 
+    <div class="bs-case__viewport" tabindex="0" aria-roledescription="carousel" aria-label="Product application cases">
+      <div class="bs-case__track">
+        <article class="bs-case__card">
+          <a class="bs-case__card-link" href="applications/food-grade-stpp-meat-processing.html" aria-label="Read the food grade STPP meat processing application case">
+            <div class="bs-case__img">
+              <img src="images/case-food-meat.jpg" alt="Processed meat application using food grade STPP for moisture and texture control" loading="lazy" width="640" height="420">
+              <span class="bs-case__number">01</span>
+            </div>
+            <div class="bs-case__content">
+              <span class="bs-case__tag">Meat Processing</span>
+              <h3 class="bs-case__name">Food Grade STPP for Meat Processing</h3>
+              <p class="bs-case__product">Sodium Tripolyphosphate · INS 451(i)</p>
+              <p class="bs-case__text">A practical phosphate application for moisture management, texture support, emulsion stability, and consistent processing in meat and poultry products.</p>
+              <span class="bs-case__link">Read application case <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="bs-case__card">
+          <a class="bs-case__card-link" href="applications/tkpp-frozen-seafood-processing.html" aria-label="Read the TKPP frozen seafood processing application case">
+            <div class="bs-case__img">
+              <img src="images/case-food-seafood.jpg" alt="Frozen seafood processing application using TKPP as a functional phosphate" loading="lazy" width="640" height="420">
+              <span class="bs-case__number">02</span>
+            </div>
+            <div class="bs-case__content">
+              <span class="bs-case__tag">Seafood Processing</span>
+              <h3 class="bs-case__name">TKPP for Frozen Seafood Processing</h3>
+              <p class="bs-case__product">Tetrapotassium Pyrophosphate · INS 450(v)</p>
+              <p class="bs-case__text">Potassium-based phosphate functionality for permitted seafood formulations requiring buffering, sequestration, and moisture management.</p>
+              <span class="bs-case__link">Read application case <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="bs-case__card">
+          <a class="bs-case__card-link" href="applications/calcium-propionate-packaged-bread.html" aria-label="Read the calcium propionate packaged bread application case">
+            <div class="bs-case__img">
+              <img src="images/case-food-bakery.jpg" alt="Bread and bakery preservation application using calcium propionate" loading="lazy" width="640" height="420">
+              <span class="bs-case__number">03</span>
+            </div>
+            <div class="bs-case__content">
+              <span class="bs-case__tag">Bakery</span>
+              <h3 class="bs-case__name">Calcium Propionate for Packaged Bread</h3>
+              <p class="bs-case__product">Calcium Propionate · E282</p>
+              <p class="bs-case__text">A preservative application focused on mold control and shelf-life planning for bread, rolls, and other yeast-raised bakery products.</p>
+              <span class="bs-case__link">Read application case <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="bs-case__card">
+          <a class="bs-case__card-link" href="applications/mcp-phosphorus-source-poultry-feed.html" aria-label="Read the MCP poultry feed application case">
+            <div class="bs-case__img">
+              <img src="images/mcp-dcp-feed-grade-calcium-phosphate-animal-nutrition-china.jpg" alt="Poultry feed mineral nutrition application using monocalcium phosphate" loading="lazy" width="640" height="420">
+              <span class="bs-case__number">04</span>
+            </div>
+            <div class="bs-case__content">
+              <span class="bs-case__tag">Animal Nutrition</span>
+              <h3 class="bs-case__name">MCP as a Phosphorus Source in Poultry Feed</h3>
+              <p class="bs-case__product">Monocalcium Phosphate · Feed Grade</p>
+              <p class="bs-case__text">A mineral-feed application for delivering available phosphorus and calcium in poultry diets and premix systems.</p>
+              <span class="bs-case__link">Read application case <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="bs-case__card">
+          <a class="bs-case__card-link" href="applications/shmp-industrial-process-water.html" aria-label="Read the SHMP industrial process water application case">
+            <div class="bs-case__img">
+              <img src="images/water-treatment.jpg" alt="Industrial water treatment system using SHMP for scale and metal ion control" loading="lazy" width="640" height="420">
+              <span class="bs-case__number">05</span>
+            </div>
+            <div class="bs-case__content">
+              <span class="bs-case__tag">Water Treatment</span>
+              <h3 class="bs-case__name">SHMP for Industrial Process Water</h3>
+              <p class="bs-case__product">Sodium Hexametaphosphate · CAS 10124-56-8</p>
+              <p class="bs-case__text">A water-treatment application using sequestration and threshold effects to support scale-control programs in industrial systems.</p>
+              <span class="bs-case__link">Read application case <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </article>
+
+        <article class="bs-case__card">
+          <a class="bs-case__card-link" href="applications/stpp-builder-powder-detergents.html" aria-label="Read the STPP powder detergent application case">
+            <div class="bs-case__img">
+              <img src="images/homecare-cleaning.jpg" alt="Powder detergent formulation using sodium tripolyphosphate as a builder" loading="lazy" width="640" height="420">
+              <span class="bs-case__number">06</span>
+            </div>
+            <div class="bs-case__content">
+              <span class="bs-case__tag">Industrial Cleaning</span>
+              <h3 class="bs-case__name">STPP Builder for Powder Detergents</h3>
+              <p class="bs-case__product">Sodium Tripolyphosphate · Technical Grade</p>
+              <p class="bs-case__text">A detergent-builder application supporting water softening, soil suspension, and cleaning performance in powdered formulations.</p>
+              <span class="bs-case__link">Read application case <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+
+    <div class="bs-case__footer">
+      <p class="bs-case__status" aria-live="polite"><span class="bs-case__current">1</span> / 6</p>
+      <div class="bs-case__controls">
+        <button type="button" class="bs-case__btn bs-case__prev" aria-label="Show previous application case"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+        <button type="button" class="bs-case__btn bs-case__next" aria-label="Show next application case"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
   </div>
 </section>
     
@@ -1483,113 +1565,21 @@ Chemical Export Container Loading at Port
     
     
     
-<section class="bs-news-section">
-  <div class="container">
-
-<!-- Section Header -->
-<div class="bs-section-header">
-  <h2 class="bs-section-title">
-    News
-  </h2>
-
-  <p class="bs-section-subtitle">
-    Explore expert insights on global market developments.
-  </p>
-</div>
-
-<!-- Layout -->
-<div class="bs-news-layout">
-
-  <!-- Featured Article -->
-  <article class="bs-news-featured" itemscope itemtype="https://schema.org/Article">
-
-    <div class="bs-news-date-badge">2026-04</div>
-
-    <meta itemprop="datePublished" content="2026-04-01">
-    <meta itemprop="author" content="Bespring Chemical">
-
-    <h3 class="bs-news-featured-title" itemprop="headline">
-      Food Grade Phosphate Market Trends and Supply Outlook for 2026
-    </h3>
-
-    <p class="bs-news-featured-desc" itemprop="description">
-      Food-grade phosphates continue to play a critical role in meat processing, seafood preservation, bakery products, dairy applications, and beverage manufacturing. This market outlook reviews global supply trends, regulatory developments, and sourcing considerations for international buyers seeking reliable phosphate suppliers in 2026.
-    </p>
-
-    <a href="news/food-grade-phosphate-market-trends-2026.html" class="bs-news-link">
-      Read Full Article →
-    </a>
-
-  </article>
-
-  <!-- News List -->
-  <div class="bs-news-list">
-
-    <!-- Article 1 -->
-    <article class="bs-news-item" itemscope itemtype="https://schema.org/Article">
-
-      <meta itemprop="author" content="Bespring Chemical">
-
-      <h4 class="bs-news-item-title" itemprop="headline">
-        What Is STPP Used for in Meat Processing and Seafood Production?
-      </h4>
-
-      <p class="bs-news-item-desc" itemprop="description">
-        Learn how Sodium Tripolyphosphate (STPP) improves water retention, texture stability, and product yield in meat, poultry, and seafood processing applications.
-      </p>
-
-      <a href="news/stpp-meat-processing-guide.html" class="bs-news-link-small">
-        Learn More →
-      </a>
-
+<section class="bs-news-section" aria-labelledby="homepage-news-title"><div class="container">
+  <div class="bs-section-header"><h2 class="bs-section-title" id="homepage-news-title">News &amp; Buyer Guides</h2><p class="bs-section-subtitle">Specification-led sourcing guidance for food, feed and industrial chemical procurement.</p></div>
+  <div class="bs-news-layout">
+    <article class="bs-news-featured" itemscope itemtype="https://schema.org/Article">
+      <div class="bs-news-date-badge">2026-02</div>
+      <meta itemprop="datePublished" content="2026-02-12"><meta itemprop="author" content="Bespring Chemical Co., Ltd.">
+      <h3 class="bs-news-featured-title" itemprop="headline">How to Qualify a Chemical Supplier in China: A Practical Buyer Checklist</h3>
+      <p class="bs-news-featured-desc" itemprop="description">Verify legal identity, product source, specifications, quality documents, traceability and export capability. The guide provides a structured qualification checklist for international procurement teams.</p>
+      <a href="news/how-to-qualify-chemical-supplier-china.html" class="bs-news-link" itemprop="url">Read Full Guide →</a>
     </article>
-
-    <!-- Article 2 -->
-    <article class="bs-news-item" itemscope itemtype="https://schema.org/Article">
-
-      <meta itemprop="author" content="Bespring Chemical">
-
-      <h4 class="bs-news-item-title" itemprop="headline">
-        MCP vs DCP: Which Feed Phosphate Is Better for Animal Nutrition?
-      </h4>
-
-      <p class="bs-news-item-desc" itemprop="description">
-        Compare Monocalcium Phosphate (MCP) and Dicalcium Phosphate (DCP) in feed formulations, phosphorus availability, calcium content, and livestock nutrition performance.
-      </p>
-
-      <a href="news/mcp-vs-dcp-feed-phosphate-guide.html" class="bs-news-link-small">
-        Learn More →
-      </a>
-
-    </article>
-
-    <!-- Article 3 -->
-    <article class="bs-news-item" itemscope itemtype="https://schema.org/Article">
-
-      <meta itemprop="author" content="Bespring Chemical">
-
-      <h4 class="bs-news-item-title" itemprop="headline">
-        Why Is SHMP Important in Water Treatment Applications?
-      </h4>
-
-      <p class="bs-news-item-desc" itemprop="description">
-        Sodium Hexametaphosphate (SHMP) is widely used in industrial water treatment systems for scale inhibition, metal ion control, corrosion prevention, and process efficiency improvement.
-      </p>
-
-      <a href="news/shmp-water-treatment-guide.html" class="bs-news-link-small">
-        Learn More →
-      </a>
-
-    </article>
-
+    <div class="bs-news-list"><article class="bs-news-item" itemscope itemtype="https://schema.org/Article"><meta itemprop="datePublished" content="2026-06-18"><meta itemprop="author" content="Bespring Chemical Co., Ltd."><h3 class="bs-news-item-title" itemprop="headline">STPP vs SHMP: How Industrial Buyers Should Compare the Two Phosphates</h3><p class="bs-news-item-desc" itemprop="description">Compare STPP and SHMP by chemical identity, function, grade, specification, physical form and supplier-qualification requirements.</p><a href="news/stpp-vs-shmp-selection-guide.html" class="bs-news-link-small" itemprop="url">Learn More →</a></article><article class="bs-news-item" itemscope itemtype="https://schema.org/Article"><meta itemprop="datePublished" content="2026-05-26"><meta itemprop="author" content="Bespring Chemical Co., Ltd."><h3 class="bs-news-item-title" itemprop="headline">MCP vs DCP Feed Phosphates: A Buyer’s Qualification Guide</h3><p class="bs-news-item-desc" itemprop="description">Compare nutrient identity, assay, physical form, contaminant limits and documents when sourcing MCP or DCP.</p><a href="news/mcp-vs-dcp-feed-phosphate-guide.html" class="bs-news-link-small" itemprop="url">Learn More →</a></article><article class="bs-news-item" itemscope itemtype="https://schema.org/Article"><meta itemprop="datePublished" content="2026-03-20"><meta itemprop="author" content="Bespring Chemical Co., Ltd."><h3 class="bs-news-item-title" itemprop="headline">Food Grade vs Technical Grade Phosphates: What Buyers Must Verify</h3><p class="bs-news-item-desc" itemprop="description">Understand how grade, specification, impurity limits, manufacturing controls and market suitability change the approval basis.</p><a href="news/food-grade-vs-technical-grade-phosphates.html" class="bs-news-link-small" itemprop="url">Learn More →</a></article></div>
   </div>
+  <p style="margin:28px 0 0;text-align:center"><a href="news.html" class="bs-news-link-small">View all buyer guides and company news →</a></p>
+</div></section>
 
-</div>
-
-  </div>
-</section>
-
-    
 <section class="bs-global">
 
   <div class="container">
@@ -1639,11 +1629,40 @@ Chemical Export Container Loading at Port
     
 </main>
 
-<!-- Floating Contact -->
-<div class="floating-contact" aria-label="Quick Contact">
-  <a href="https://wa.me/8613914896109" target="_blank" class="contact-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
-  <a href="#" class="contact-icon back-top" onclick="window.scrollTo({top:0, behavior:'smooth'});"><i class="fas fa-arrow-up"></i></a>
-</div>
+<!-- Floating Sales Contact -->
+<aside class="contact-dock" aria-label="Contact Bespring Chemical export sales">
+  <div class="contact-dock__card">
+    <div class="contact-dock__head">
+      <span class="contact-dock__presence" aria-hidden="true"></span>
+      <span><strong>Contact Sales</strong><small>Export inquiry support</small></span>
+    </div>
+    <nav class="contact-dock__links" aria-label="Sales contact options">
+      <a href="https://wa.me/8613914896109" target="_blank" rel="noopener noreferrer" class="contact-dock__link contact-dock__link--whatsapp" aria-label="Chat with export sales on WhatsApp">
+        <span class="contact-dock__icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></span>
+        <span class="contact-dock__text"><strong>WhatsApp</strong><small>Chat with export sales</small></span>
+        <i class="fas fa-arrow-up-right-from-square contact-dock__arrow" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:info@bespringchem.com" class="contact-dock__link" aria-label="Email Bespring Chemical export sales">
+        <span class="contact-dock__icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+        <span class="contact-dock__text"><strong>Email</strong><small>info@bespringchem.com</small></span>
+        <i class="fas fa-arrow-right contact-dock__arrow" aria-hidden="true"></i>
+      </a>
+      <a href="tel:+8613914896109" class="contact-dock__link" aria-label="Call Bespring Chemical export sales">
+        <span class="contact-dock__icon"><i class="fas fa-phone" aria-hidden="true"></i></span>
+        <span class="contact-dock__text"><strong>Call Sales</strong><small>+86 139 1489 6109</small></span>
+        <i class="fas fa-arrow-right contact-dock__arrow" aria-hidden="true"></i>
+      </a>
+      <a href="contact.html" class="contact-dock__link contact-dock__link--rfq" aria-label="Send a product and quotation request">
+        <span class="contact-dock__icon"><i class="fas fa-file-signature" aria-hidden="true"></i></span>
+        <span class="contact-dock__text"><strong>Send an RFQ</strong><small>Product &amp; quotation request</small></span>
+        <i class="fas fa-arrow-right contact-dock__arrow" aria-hidden="true"></i>
+      </a>
+    </nav>
+  </div>
+  <button type="button" class="contact-dock__top" aria-label="Back to top" title="Back to top" onclick="window.scrollTo({top:0, behavior:'smooth'});">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+</aside>
 
 <!-- Footer -->
 <footer class="crc-footer">
@@ -1764,6 +1783,109 @@ slides.forEach(slide => {
 });
 
 startAutoSlide();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.querySelector(".bs-case");
+  if (!section) return;
+
+  const viewport = section.querySelector(".bs-case__viewport");
+  const track = section.querySelector(".bs-case__track");
+  const prev = section.querySelector(".bs-case__prev");
+  const next = section.querySelector(".bs-case__next");
+  const currentLabel = section.querySelector(".bs-case__current");
+  const originalCards = Array.from(track.children);
+  const total = originalCards.length;
+  let index = 0;
+  let perView = 3;
+  let timer;
+  let isAnimating = false;
+
+  function visibleCards() {
+    if (window.innerWidth <= 720) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+
+  function setPosition(animate = true) {
+    track.style.transition = animate ? "transform .65s cubic-bezier(.22,.61,.36,1)" : "none";
+    track.style.transform = `translateX(-${index * (100 / perView)}%)`;
+    currentLabel.textContent = String((index % total) + 1);
+  }
+
+  function rebuild() {
+    track.querySelectorAll("[data-case-clone]").forEach(card => card.remove());
+    perView = visibleCards();
+    originalCards.slice(0, perView).forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.dataset.caseClone = "true";
+      clone.setAttribute("aria-hidden", "true");
+      clone.querySelectorAll("a, button").forEach(el => el.setAttribute("tabindex", "-1"));
+      track.appendChild(clone);
+    });
+    index = 0;
+    setPosition(false);
+  }
+
+  function goNext() {
+    if (isAnimating) return;
+    isAnimating = true;
+    index += 1;
+    setPosition();
+  }
+
+  function goPrev() {
+    if (isAnimating) return;
+    if (index === 0) {
+      index = total;
+      setPosition(false);
+      track.getBoundingClientRect();
+    }
+    isAnimating = true;
+    index -= 1;
+    setPosition();
+  }
+
+  function stop() {
+    window.clearInterval(timer);
+  }
+
+  function start() {
+    stop();
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      timer = window.setInterval(goNext, 4800);
+    }
+  }
+
+  track.addEventListener("transitionend", () => {
+    isAnimating = false;
+    if (index >= total) {
+      index = 0;
+      setPosition(false);
+    }
+  });
+
+  next.addEventListener("click", () => { goNext(); start(); });
+  prev.addEventListener("click", () => { goPrev(); start(); });
+  viewport.addEventListener("mouseenter", stop);
+  viewport.addEventListener("mouseleave", start);
+  viewport.addEventListener("focusin", stop);
+  viewport.addEventListener("focusout", start);
+  viewport.addEventListener("keydown", event => {
+    if (event.key === "ArrowRight") { event.preventDefault(); goNext(); start(); }
+    if (event.key === "ArrowLeft") { event.preventDefault(); goPrev(); start(); }
+  });
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => { rebuild(); start(); }, 160);
+  });
+
+  rebuild();
+  start();
+});
 </script>
     
 <script>

@@ -1,0 +1,463 @@
+/* Global Markets page */
+.gm-hero {
+  min-height: 570px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+  background: #071b26 url("../images/global-chemical-supply-chain.jpg") center / cover no-repeat;
+}
+
+.gm-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5, 27, 19, .6) 0%, rgba(7, 37, 27, .6) 51%, rgba(6, 30, 22, .35) 82%, rgba(6, 30, 22, .2) 100%),
+    linear-gradient(0deg, rgba(5, 23, 16, .46), transparent 55%);
+}
+
+.gm-hero__content { position: relative; z-index: 1; padding-top: 60px; padding-bottom: 70px; }
+.gm-breadcrumb { margin-bottom: 52px; color: rgba(255, 255, 255, .78); font-size: 13px; }
+.gm-breadcrumb ol { display: flex; flex-wrap: wrap; gap: 8px; }
+.gm-breadcrumb li + li::before { content: "/"; margin-right: 8px; color: rgba(255, 255, 255, .42); }
+.gm-breadcrumb a:hover { color: #fff; }
+
+.gm-eyebrow {
+  margin-bottom: 12px;
+  color: #168a43;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.gm-hero .gm-eyebrow,
+.gm-logistics .gm-eyebrow,
+.gm-cta .gm-eyebrow { color: #70df95; }
+
+.gm-hero h1 {
+  max-width: 850px;
+  margin-bottom: 20px;
+  font-size: clamp(40px, 5.7vw, 68px);
+  line-height: 1.06;
+  letter-spacing: -.035em;
+}
+
+.gm-hero__lead {
+  max-width: 750px;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, .88);
+  font-size: clamp(18px, 2vw, 21px);
+  line-height: 1.65;
+}
+
+html:not([lang^="zh"]) .gm-hero {
+  height: 610px;
+  min-height: 560px;
+  background-color: #0c2417;
+}
+
+html:not([lang^="zh"]) .gm-hero__content {
+  padding-top: 64px;
+  padding-bottom: 72px;
+}
+
+html:not([lang^="zh"]) .gm-breadcrumb {
+  margin-bottom: 58px;
+}
+
+html:not([lang^="zh"]) .gm-breadcrumb ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html:not([lang^="zh"]) .gm-hero h1 {
+  max-width: 1040px;
+  margin-bottom: 20px;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -.035em;
+}
+
+html:not([lang^="zh"]) .gm-hero__lead {
+  max-width: 720px;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, .88);
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.65;
+}
+
+html:not([lang^="zh"]) .gm-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+html:not([lang^="zh"]) .gm-button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 22px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.gm-hero__actions,
+.gm-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.gm-button {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 22px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 750;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.gm-button:hover { transform: translateY(-2px); }
+.gm-button--primary { background: #168a43; color: #fff; }
+.gm-button--primary:hover { background: #0e6f34; }
+.gm-button--ghost,
+.gm-button--outline-light { border-color: rgba(255, 255, 255, .5); color: #fff; }
+.gm-button--ghost:hover,
+.gm-button--outline-light:hover { border-color: #fff; background: rgba(255, 255, 255, .1); }
+.gm-button--dark-outline { border-color: #168a43; color: #147b3d; }
+.gm-button--dark-outline:hover { background: #e8f4ec; }
+
+.gm-about-nav {
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid #e5e9e7;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(18, 47, 31, .06);
+}
+
+.gm-about-nav ul { display: flex; overflow-x: auto; scrollbar-width: none; }
+.gm-about-nav ul::-webkit-scrollbar { display: none; }
+
+.gm-about-nav a {
+  display: block;
+  position: relative;
+  padding: 20px 22px;
+  color: #526159;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.gm-about-nav a:hover,
+.gm-about-nav a.active { color: #147b3d; }
+
+.gm-about-nav a.active::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  bottom: 0;
+  left: 22px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: #168a43;
+}
+
+.gm-overview { padding: 100px 0; }
+
+.gm-overview__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 90px);
+}
+
+.gm-overview h2,
+.gm-section-heading h2,
+.gm-process h2,
+.gm-faq h2 {
+  color: #17251d;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.18;
+  letter-spacing: -.025em;
+}
+
+.gm-overview__copy > p:not(.gm-eyebrow) { color: #59665e; font-size: 16px; line-height: 1.8; }
+
+.gm-overview__copy .gm-overview__answer {
+  padding-left: 18px;
+  border-left: 3px solid #168a43;
+  color: #26382d;
+  font-size: 17px;
+}
+
+.gm-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #147b3d;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.gm-text-link:hover { gap: 12px; }
+
+.gm-overview__facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  border: 1px solid #dfe8e2;
+  border-radius: 14px;
+  background: #f4f8f5;
+  box-shadow: 0 18px 50px rgba(18, 54, 34, .08);
+}
+
+.gm-fact {
+  display: flex;
+  min-height: 190px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px;
+}
+
+.gm-fact:nth-child(even) { border-left: 1px solid #dfe8e2; }
+.gm-fact:nth-child(n+3) { border-top: 1px solid #dfe8e2; }
+.gm-fact--featured { background: #168a43; }
+.gm-fact > span { color: #13763b; font-size: 38px; font-weight: 850; line-height: 1; }
+.gm-fact > i { margin-bottom: 13px; color: #13763b; font-size: 26px; }
+.gm-fact strong { margin-top: 12px; color: #26382d; font-size: 15px; }
+.gm-fact small { margin-top: 7px; color: #6b776f; font-size: 12px; line-height: 1.55; }
+.gm-fact--featured > span,
+.gm-fact--featured strong { color: #fff; }
+.gm-fact--featured small { color: rgba(255, 255, 255, .75); }
+
+.gm-regions { padding: 100px 0; background: #f3f7f4; }
+
+.gm-section-heading { max-width: 800px; margin: 0 auto 48px; text-align: center; }
+.gm-section-heading > p:last-child { color: #647169; font-size: 16px; line-height: 1.75; }
+
+.gm-regions__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.gm-regions__grid article {
+  min-height: 310px;
+  position: relative;
+  padding: 32px 26px;
+  overflow: hidden;
+  border: 1px solid #dde7e0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(18, 54, 34, .05);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.gm-regions__grid article:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(18, 54, 34, .1); }
+.gm-region-icon { display: inline-flex; width: 54px; height: 54px; align-items: center; justify-content: center; border-radius: 50%; background: #e3f3e8; color: #147b3d; font-size: 22px; }
+.gm-region-number { position: absolute; top: 27px; right: 24px; color: #d9e5dd; font-size: 25px; font-weight: 850; }
+.gm-regions__grid h3 { margin-top: 30px; color: #213329; font-size: 21px; }
+.gm-regions__grid p { color: #66736b; font-size: 14px; line-height: 1.75; }
+
+.gm-region-note {
+  max-width: 850px;
+  margin: 28px auto 0;
+  padding: 13px 17px;
+  border: 1px solid #d5e5da;
+  border-radius: 8px;
+  background: #fff;
+  color: #5e6d63;
+  font-size: 13px;
+  text-align: center;
+}
+
+.gm-region-note i { margin-right: 7px; color: #168a43; }
+
+.gm-products { padding: 100px 0; }
+
+.gm-products__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.gm-product-card {
+  display: flex;
+  min-height: 310px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 34px;
+  border: 1px solid #e0e8e2;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(18, 54, 34, .07);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.gm-product-card:hover { transform: translateY(-6px); border-color: #b8d8c3; box-shadow: 0 20px 46px rgba(18, 54, 34, .11); }
+.gm-product-card > span { display: inline-flex; width: 52px; height: 52px; align-items: center; justify-content: center; margin-bottom: 24px; border-radius: 10px; background: #e3f3e8; color: #147b3d; font-size: 21px; }
+.gm-product-card > div { display: flex; flex: 1; flex-direction: column; }
+.gm-product-card h3 { color: #1d3024; font-size: 21px; }
+.gm-product-card p { flex: 1; color: #66736b; line-height: 1.75; }
+.gm-product-card strong { display: inline-flex; align-items: center; gap: 8px; color: #147b3d; font-size: 14px; }
+
+.gm-logistics {
+  padding: 100px 0;
+  color: #fff;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(34, 139, 88, .2), transparent 28%),
+    #0a2831;
+}
+
+.gm-section-heading--light h2 { color: #fff; }
+.gm-section-heading--light > p:last-child { color: rgba(255, 255, 255, .68); }
+
+.gm-logistics__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+.gm-logistics figure {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .05);
+}
+
+.gm-logistics figure img { width: 100%; height: 230px; object-fit: cover; border-radius: 0; }
+.gm-logistics figcaption { display: grid; grid-template-columns: 38px 1fr; gap: 12px; padding: 25px; }
+.gm-logistics figcaption > span { color: #70df95; font-size: 12px; font-weight: 850; }
+.gm-logistics h3 { margin: 0 0 8px; color: #fff; font-size: 18px; }
+.gm-logistics figcaption p { margin: 0; color: rgba(255, 255, 255, .65); font-size: 14px; line-height: 1.7; }
+
+.gm-process { padding: 100px 0; background: #f5f7f5; }
+
+.gm-process__grid {
+  display: grid;
+  grid-template-columns: .82fr 1.18fr;
+  align-items: start;
+  gap: clamp(50px, 8vw, 110px);
+}
+
+.gm-process__heading { position: sticky; top: 120px; }
+.gm-process__heading > p:not(.gm-eyebrow) { color: #657169; line-height: 1.8; }
+.gm-process__heading .gm-button { margin-top: 12px; }
+.gm-process__steps { position: relative; }
+
+.gm-process__steps li {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 18px;
+  padding: 0 0 28px;
+  border-bottom: 1px solid #dbe4de;
+  margin-bottom: 28px;
+}
+
+.gm-process__steps li:last-child { margin: 0; padding-bottom: 0; border-bottom: 0; }
+.gm-process__steps li > span { display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border: 1px solid #b5d5bf; border-radius: 9px; color: #147b3d; font-weight: 850; }
+.gm-process__steps h3 { margin: 0 0 6px; color: #26382d; font-size: 18px; }
+.gm-process__steps p { margin: 0; color: #657169; font-size: 14px; line-height: 1.7; }
+
+.gm-faq { padding: 100px 0; }
+
+.gm-faq__grid {
+  display: grid;
+  grid-template-columns: .75fr 1.25fr;
+  gap: clamp(50px, 8vw, 100px);
+}
+
+.gm-faq__heading > p:last-child { color: #657169; line-height: 1.8; }
+.gm-faq__list { border-top: 1px solid #dfe6e1; }
+.gm-faq details { border-bottom: 1px solid #dfe6e1; }
+
+.gm-faq summary {
+  position: relative;
+  padding: 22px 44px 22px 0;
+  color: #24362b;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 750;
+  list-style: none;
+}
+
+.gm-faq summary::-webkit-details-marker { display: none; }
+.gm-faq summary::after { content: "+"; position: absolute; top: 18px; right: 4px; color: #168a43; font-size: 26px; font-weight: 400; }
+.gm-faq details[open] summary::after { content: "−"; }
+.gm-faq details p { padding: 0 44px 20px 0; color: #657169; line-height: 1.75; }
+
+.gm-cta { padding: 66px 0; color: #fff; background: #157c3e; }
+
+.gm-cta__inner {
+  display: grid;
+  grid-template-columns: 1.45fr .55fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.gm-cta h2 { margin-bottom: 10px; color: #fff; font-size: clamp(28px, 4vw, 40px); }
+.gm-cta p:last-child { margin: 0; color: rgba(255, 255, 255, .8); }
+.gm-cta__actions { justify-content: flex-end; }
+.gm-cta .gm-button--primary { background: #fff; color: #116d35; }
+.gm-cta .gm-button--primary:hover { background: #eef8f1; }
+
+@media (max-width: 1050px) {
+  .gm-regions__grid { grid-template-columns: repeat(2, 1fr); }
+  .gm-logistics__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .gm-overview__grid,
+  .gm-process__grid,
+  .gm-faq__grid,
+  .gm-cta__inner { grid-template-columns: 1fr; }
+  .gm-process__heading { position: static; }
+  .gm-products__grid { grid-template-columns: repeat(2, 1fr); }
+  .gm-cta__actions { justify-content: flex-start; }
+}
+
+@media (max-width: 700px) {
+  .gm-hero { min-height: 560px; background-position: 63% center; }
+  .gm-hero__overlay { background: rgba(5, 27, 19, .6); }
+  .gm-hero__content { padding-top: 38px; padding-bottom: 46px; }
+  .gm-breadcrumb { margin-bottom: 38px; }
+  html:not([lang^="zh"]) .gm-hero { height: 540px; min-height: 540px; background-position: 58% center; }
+  html:not([lang^="zh"]) .gm-hero h1 { max-width: 760px; }
+  html:not([lang^="zh"]) .gm-breadcrumb { margin-bottom: 40px; }
+  .gm-about-nav a { padding: 17px 15px; font-size: 13px; }
+  .gm-about-nav a.active::after { right: 15px; left: 15px; }
+  .gm-overview,
+  .gm-regions,
+  .gm-products,
+  .gm-logistics,
+  .gm-process,
+  .gm-faq { padding: 70px 0; }
+  .gm-regions__grid,
+  .gm-products__grid,
+  .gm-logistics__grid { grid-template-columns: 1fr; }
+  .gm-regions__grid article,
+  .gm-product-card { min-height: 0; }
+  .gm-logistics figure img { height: 245px; }
+  .gm-cta { padding: 54px 0; }
+}
+
+@media (max-width: 480px) {
+  .gm-hero__actions,
+  .gm-cta__actions { align-items: stretch; flex-direction: column; }
+  .gm-button { width: 100%; }
+  .gm-overview__facts { grid-template-columns: 1fr; }
+  .gm-fact { min-height: 155px; }
+  .gm-fact:nth-child(even) { border-left: 0; }
+  .gm-fact:nth-child(n+2) { border-top: 1px solid #dfe8e2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gm-button,
+  .gm-regions__grid article,
+  .gm-product-card { transition: none; }
+}
