@@ -14,7 +14,7 @@
   <link rel="alternate" hreflang="zh-CN" href="https://www.bespringchem.com/zh-cn/contact.html">
   <link rel="alternate" hreflang="zh-TW" href="https://www.bespringchem.com/zh-tw/contact.html">
   <link rel="alternate" hreflang="es" href="https://www.bespringchem.com/es/contact.html">
-  <link rel="alternate" hreflang="pt" href="https://www.bespringchem.com/pt/contact.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://www.bespringchem.com/pt/contact.html">
   <link rel="alternate" hreflang="ru" href="https://www.bespringchem.com/ru/contact.html">
   <link rel="alternate" hreflang="de" href="https://www.bespringchem.com/de/contact.html">
   <link rel="alternate" hreflang="ar" href="https://www.bespringchem.com/ar/contact.html">
@@ -319,7 +319,7 @@
     <div class="footer-bottom">© 2026 شركة Bespring Chemical المحدودة. جميع الحقوق محفوظة.</div>
   </footer>
 
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     const hamburger = document.querySelector('.hamburger');
     const navigation = document.querySelector('.main-nav');
@@ -330,7 +330,7 @@
       hamburger.setAttribute('aria-label', isOpen ? 'إغلاق قائمة التنقل' : 'فتح قائمة التنقل');
     });
 
-    emailjs.init('evd5fyrngOFOv_NQS');
+    emailjs.init({ publicKey: 'evd5fyrngOFOv_NQS' });
 
     const quoteForm = document.getElementById('quote-form');
     const formStatus = document.getElementById('form-status');
