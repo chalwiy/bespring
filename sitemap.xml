@@ -1155,4 +1155,22 @@
   <url>
     <loc>https://www.bespringchem.com/zh-tw/services.html</loc>
   </url>
+  <url>
+    <loc>https://www.bespringchem.com/products/food-ingredients/potassium-metaphosphate-kmp.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bespringchem.com/products/food-ingredients/potassium-tripolyphosphate-ktpp.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.bespringchem.com/products/food-ingredients/monopotassium-phosphate-mkp.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
