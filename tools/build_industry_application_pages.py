@@ -5,6 +5,7 @@ from __future__ import annotations
 import html
 import json
 import re
+from datetime import datetime
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -364,21 +365,23 @@ def remove_obsolete(target_slugs):
 def rebuild_sitemap():
     path=ROOT/"sitemap.xml"; ns="http://www.sitemaps.org/schemas/sitemap/0.9"; q="{"+ns+"}"
     ET.register_namespace("",ns)
-    old={}
-    if path.exists():
-        tree=ET.parse(path)
-        for node in tree.getroot().findall(q+"url"):
-            loc=node.findtext(q+"loc")
-            if loc: old[loc]=node
-    urls=[]
+    urls={}
     for file in ROOT.rglob("*.html"):
+        if "tools" in file.relative_to(ROOT).parts:
+            continue
+        text=file.read_text(encoding="utf-8-sig")
+        if re.search(r'<meta\s+name=["\']robots["\'][^>]*\bnoindex\b', text, re.I):
+            continue
+        canonical=re.search(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']', text, re.I)
+        if not canonical:
+            continue
         rel=file.relative_to(ROOT).as_posix()
-        urls.append(f"{BASE}/{rel}" if rel != "index.html" else BASE+"/")
+        url=canonical.group(1)
+        urls[url]=file
     root=ET.Element(q+"urlset")
-    for url in sorted(set(urls)):
-        if url in old: root.append(old[url]); continue
+    for url,file in sorted(urls.items()):
         node=ET.SubElement(root,q+"url"); ET.SubElement(node,q+"loc").text=url
-        ET.SubElement(node,q+"lastmod").text=DATE; ET.SubElement(node,q+"changefreq").text="monthly"; ET.SubElement(node,q+"priority").text="0.7"
+        ET.SubElement(node,q+"lastmod").text=datetime.fromtimestamp(file.stat().st_mtime).date().isoformat()
     tree=ET.ElementTree(root); ET.indent(tree,space="  "); tree.write(path,encoding="utf-8",xml_declaration=True)
 
 
