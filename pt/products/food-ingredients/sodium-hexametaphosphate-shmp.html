@@ -161,7 +161,7 @@
           <p class="bs-shmp-kicker">Visao geral do produto</p>
           <h2>O que é SHMP de grau alimentício?</h2>
           <p>O hexametafosfato de sódio de grau alimentício é um fosfato de sódio condensado solúvel em água fornecido como um pó branco. No processamento de alimentos, pode funcionar como um sequestrante, regulador de pH, correctivo de qualidade, ligante ou outro fosfato funcional, dependendo da formulação e utilização permitida.</p>
-          <p>O nome comercial SHMP pode cobrir identidades de produtos descritas de forma diferente entre padrões e mercados. Os compradores devem confirmar o número CAS, a fórmula, a identidade dos aditivos alimentares aplicáveis, os métodos de ensaio e os requisitos do mercado de destino antes da compra.</p>
+          <p>O nome comercial SHMP pode cobrir identidades de produtos descritas de forma diferente entre padrões e mercados. Os compradores devem confirmar o número CAS, a fórmula, a identidade dos aditivos alimentares aplicáveis, os métodos de ensaio e os requisitos do mercado-alvo antes da compra.</p>
         </div>
         <aside class="bs-shmp-callout">
           <h3>Resumo de compras</h3>
@@ -344,9 +344,9 @@
           </div>
           <label>Produto<input type="text" name="product" value="Grau alimentício Sodium Hexametaphosphate" readonly></label>
           <label>Requisitos <span aria-hidden="true">*</span><textarea name="message" rows="5" placeholder="Padrão, especificação, embalagem, paletes, aplicação e data de entrega alvo" required></textarea></label>
-          <button class="bs-shmp-btn bs-shmp-btn--primary" type="submit">Enviar solicitação de cotação <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+          <button class="bs-shmp-btn bs-shmp-btn--primary" type="submit">Enviar solicotação de cotação <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
           <p class="bs-shmp-form__status" id="quote-status" role="status" aria-live="polite"></p>
-          <p class="bs-shmp-form__privacy">Ao enviar este formulário, você concorda que a Bespring Chemical pode usar as informações para responder ao seu consultor comercial.</p>
+          <p class="bs-shmp-form__privacy">Ao enviar este forma, você concorda que a Bespring Chemical pode usar as informações para responder ao seu consultor comercial.</p>
         </form>
       </div>
     </section>
@@ -403,22 +403,22 @@
         event.preventDefault();
 
         if (!window.emailjs) {
-          quoteStatus.textContent = "O serviço do formulário está temporariamente indisponível. Envie um e-mail para info@bespringchem.com.";
+          quoteStatus.textContent = "O serviço do forma está temporariamente indisponível. Envie um e-mail para info@bespringchem.com.";
           return;
         }
 
         const submitButton = quoteForm.querySelector('button[type="submit"]');
         submitButton.disabled = true;
-        quoteStatus.textContent = "Enviando sua solicitação…";
+        quoteStatus.textContent = "Enviando sua solicotação…";
 
         emailjs.sendForm("service_eim9osc", "template_z7mkti2", quoteForm)
           .then(function () {
-            quoteStatus.textContent = "Obrigado. Sua solicitação de cotação foi enviada com sucesso.";
+            quoteStatus.textContent = "Obrigado. Sua solicotação de cotação foi enviada com sucesso.";
             quoteForm.reset();
             quoteForm.elements.product.value="Grau alimentício Sodium Hexametaphosphate";
           })
           .catch(function () {
-            quoteStatus.textContent = "Não foi possível enviar o formulário. Escreva para info@bespringchem.com ou tente novamente.";
+            quoteStatus.textContent = "Não foi possível enviar o forma. Escreva para info@bespringchem.com ou tente novamente.";
           })
           .finally(function () {
             submitButton.disabled = false;
