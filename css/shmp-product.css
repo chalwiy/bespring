@@ -84,6 +84,32 @@
 .bs-shmp-note{display:flex;align-items:flex-start;gap:13px;margin-top:18px;padding:19px 22px;border-left:3px solid #d6a92f;background:#fffaf0}
 .bs-shmp-note i{margin-top:5px;color:#a87800}
 .bs-shmp-note p{margin:0;color:#665b40;font-size:13px}
+.bs-shmp-chain{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.bs-shmp-chain article{padding:28px;border:1px solid var(--bs-shmp-line);border-radius:12px;background:linear-gradient(145deg,#fff,#f7faf8)}
+.bs-shmp-chain span{color:var(--bs-shmp-green);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.bs-shmp-chain h3{margin:14px 0 9px;font-size:21px}
+.bs-shmp-chain p{margin:0;color:var(--bs-shmp-muted);font-size:14px;line-height:1.65}
+.bs-shmp-authority{margin-top:22px;padding:26px;border:1px solid #cfe1d4;border-radius:10px;background:#f5faf6}
+.bs-shmp-authority h3{margin-bottom:8px;font-size:19px}
+.bs-shmp-authority p{margin:0;color:var(--bs-shmp-muted);font-size:14px}
+.bs-shmp-source-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:17px}
+.bs-shmp-source-links a{display:inline-flex;align-items:center;gap:7px;color:var(--bs-shmp-green-dark);font-size:13px;font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.bs-shmp-selection{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.bs-shmp-selection article{padding:25px;border-top:3px solid #a9cdb3;border-radius:4px 4px 10px 10px;background:#f8fbf9}
+.bs-shmp-selection strong{color:var(--bs-shmp-ink);font-size:16px}
+.bs-shmp-selection p{margin:7px 0 0;color:var(--bs-shmp-muted);font-size:13px;line-height:1.65}
+.bs-shmp-grade-boundary{display:flex;align-items:flex-start;gap:17px;margin-top:22px;padding:24px 27px;border-left:4px solid var(--bs-shmp-green);border-radius:4px 10px 10px 4px;background:var(--bs-shmp-green-pale)}
+.bs-shmp-grade-boundary>i{display:grid;flex:0 0 43px;width:43px;height:43px;place-items:center;border-radius:50%;color:#fff;background:var(--bs-shmp-green)}
+.bs-shmp-grade-boundary h3{margin-bottom:4px;font-size:17px}
+.bs-shmp-grade-boundary p{margin:0;color:var(--bs-shmp-muted);font-size:13px}
+.bs-shmp-grade-boundary a{color:var(--bs-shmp-green-dark);font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.bs-shmp-resources{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.bs-shmp-resources a{display:flex;min-height:170px;flex-direction:column;padding:24px;border:1px solid var(--bs-shmp-line);border-radius:10px;background:#fff;transition:border-color 180ms ease,transform 180ms ease,box-shadow 180ms ease}
+.bs-shmp-resources a:hover{border-color:#9ec7aa;box-shadow:0 12px 30px rgba(21,51,41,.07);transform:translateY(-3px)}
+.bs-shmp-resources span{margin-bottom:12px;color:var(--bs-shmp-green);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.bs-shmp-resources strong{margin-bottom:7px;color:var(--bs-shmp-ink);font-size:17px}
+.bs-shmp-resources small{color:var(--bs-shmp-muted);font-size:13px;line-height:1.55}
+.bs-shmp-reviewed{margin-top:20px;color:var(--bs-shmp-muted);font-size:11px}
 .bs-shmp-handling{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start;margin-top:84px;padding:48px;border-radius:14px;background:var(--bs-shmp-warm)}
 .bs-shmp-handling h2{margin-bottom:0;font-size:clamp(28px,3vw,38px)}
 .bs-shmp-handling ul{list-style:none}
@@ -140,6 +166,7 @@
   .bs-shmp-proof__grid>div:nth-child(2){border-right:0}
   .bs-shmp-proof__grid>div:nth-child(-n+2){border-bottom:1px solid var(--bs-shmp-line)}
   .bs-shmp-apps{grid-template-columns:repeat(2,1fr)}
+  .bs-shmp-chain,.bs-shmp-selection,.bs-shmp-resources{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:780px){
   .bs-shmp-shell{width:min(100% - 30px,1180px)}
@@ -153,6 +180,7 @@
   .bs-shmp-content{padding-bottom:72px}
   .bs-shmp-overview{gap:32px}
   .bs-shmp-compare{grid-template-columns:1fr}
+  .bs-shmp-chain{grid-template-columns:1fr}
   .bs-shmp-handling,.bs-shmp-storage{gap:30px;padding:32px}
   .bs-shmp-handling{margin-top:65px}
   .bs-shmp-quote{padding:72px 0}
@@ -167,6 +195,7 @@
   .bs-shmp-proof__grid>div,.bs-shmp-proof__grid>div:nth-child(2){border-right:0;border-bottom:1px solid var(--bs-shmp-line)}
   .bs-shmp-proof__grid>div:last-child{border-bottom:0}
   .bs-shmp-apps{grid-template-columns:1fr}
+  .bs-shmp-selection,.bs-shmp-resources{grid-template-columns:1fr}
   .bs-shmp-apps article{min-height:0}
   .bs-shmp-compare article,.bs-shmp-callout,.bs-shmp-handling,.bs-shmp-storage,.bs-shmp-form{padding:24px}
   .bs-shmp-form__row{grid-template-columns:1fr}
