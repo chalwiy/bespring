@@ -6,7 +6,7 @@
   align-items: center;
   overflow: hidden;
   color: #fff;
-  background: #0c2417 url("../images/about-banner.jpg") center / cover no-repeat;
+  background: #0c2417 url("../images/about-banner.webp") center / cover no-repeat;
 }
 
 .cp-hero__overlay {

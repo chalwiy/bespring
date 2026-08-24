@@ -140,7 +140,7 @@
   color: #fff;
   background:
     linear-gradient(120deg, rgba(9, 47, 34, .97), rgba(13, 79, 53, .91)),
-    url("../images/global-chemical-supply-chain.jpg") center/cover;
+    url("../images/global-chemical-supply-chain.webp") center/cover;
 }
 
 .localized-products .intro-text {
