@@ -1,0 +1,14 @@
+/* Homepage-only corrections. Font Awesome SVG artwork: CC BY 4.0. */
+.home-icon{display:inline-block;width:1em;height:1em;fill:currentColor;vertical-align:-.125em;flex-shrink:0}
+.bs-seo-highlight .home-icon{margin-right:6px}
+.bs-seo-contact .home-icon{margin-right:5px}
+.bs-seo-contact .home-icon,.bs-seo-highlight .home-icon,.bs-seo-topbar-left>span:not(.bs-seo-divider) .home-icon{color:#a9d6b8}
+.banner-dots button{appearance:none;display:inline-block;width:25px;height:24px;padding:0;border:0;background:transparent;position:relative;cursor:pointer}
+.banner-dots button::before{content:"";position:absolute;left:0;right:0;top:10px;height:3px;border-radius:3px;background:rgba(255,255,255,.65)}
+.banner-dots button.active{width:40px}
+.banner-dots button.active::before{background:#a8d5b4}
+.banner-dots button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.bs-prod .bs-prod__card .bs-prod__cas{color:#46574f}
+.bs-buyer-process__header>span{color:#8be0c0}
+.crc-footer .contact-btn-footer{background:#155e3c;color:#fff}
+.crc-footer .contact-btn-footer:hover,.crc-footer .contact-btn-footer:focus-visible{background:#104b30;color:#fff}
