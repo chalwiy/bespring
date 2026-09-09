@@ -174,7 +174,7 @@
                 <i class="fab fa-whatsapp"></i>
                 WhatsApp
             </a>
-        <div class="bs-seo-language" aria-label="Language selection"><a href="contact.html" lang="en" class="active" aria-current="page">EN</a><a href="zh-cn/contact.html" lang="zh-CN">简</a><a href="zh-tw/contact.html" lang="zh-TW">繁</a><a href="es/contact.html" lang="es">ES</a><a href="pt/contact.html" lang="pt">PT</a><a href="ru/contact.html" lang="ru">RU</a><a href="de/contact.html" lang="de">DE</a><a href="ar/contact.html" lang="ar">AR</a></div>
+        <div class="bs-seo-language" aria-label="Language selection" role="group"><a href="contact.html" lang="en" class="active" aria-current="page">EN</a><a href="zh-cn/contact.html" lang="zh-CN">简</a><a href="zh-tw/contact.html" lang="zh-TW">繁</a><a href="es/contact.html" lang="es">ES</a><a href="pt/contact.html" lang="pt">PT</a><a href="ru/contact.html" lang="ru">RU</a><a href="de/contact.html" lang="de">DE</a><a href="ar/contact.html" lang="ar">AR</a></div>
       </div>
     </div>
   </div>
@@ -183,7 +183,7 @@
     <div class="container nav-container">
       <div class="logo">
         <a href="./" aria-label="Bespring Chemical home">
-          <img src="images/logo.png" alt="Bespring Chemical">
+          <img src="images/logo.png" alt="Bespring Chemical" width="283" height="65">
         </a>
       </div>
       <nav class="main-nav" aria-label="Main navigation">
@@ -414,7 +414,10 @@
       hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
     });
 
-    emailjs.init({ publicKey: 'evd5fyrngOFOv_NQS' });
+    const emailServiceReady = typeof window.emailjs !== 'undefined';
+    if (emailServiceReady) {
+      emailjs.init({ publicKey: 'evd5fyrngOFOv_NQS' });
+    }
 
     const quoteForm = document.getElementById('quote-form');
     const formStatus = document.getElementById('form-status');
@@ -422,6 +425,11 @@
 
     quoteForm.addEventListener('submit', function (event) {
       event.preventDefault();
+      if (!emailServiceReady) {
+        formStatus.className = 'contact-form-status is-error';
+        formStatus.textContent = 'The inquiry service could not load. Your details have not been sent. Please email info@bespringchem.com or reload this page to try again.';
+        return;
+      }
       submitButton.disabled = true;
       submitButton.querySelector('span').textContent = 'Sending...';
       formStatus.className = 'contact-form-status';
