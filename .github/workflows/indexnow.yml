@@ -25,7 +25,6 @@ jobs:
           fetch-depth: 0
 
       - name: Build URL list
-        id: urls
         shell: bash
         run: |
           set -euo pipefail
@@ -40,10 +39,12 @@ jobs:
             if [ -z "$BEFORE" ] || printf '%s' "$BEFORE" | grep -Eq '^0+$'; then
               git ls-files '*.html' > indexnow-files.txt
             else
-              git diff --name-only --diff-filter=ACMDR "$BEFORE" "$AFTER" -- '*.html' > indexnow-files.txt || true
+              # --no-renames makes a rename appear as delete + add so both the old
+              # URL and the new URL can be reported to IndexNow.
+              git diff --name-only --no-renames --diff-filter=ACMDR "$BEFORE" "$AFTER" -- '*.html' > indexnow-files.txt || true
 
-              # When this workflow is first installed/changed and no HTML changed,
-              # submit the current site once so IndexNow has an initial URL set.
+              # When this workflow itself is installed/changed and no HTML changed,
+              # submit the current indexable site once as a validation run.
               if [ ! -s indexnow-files.txt ] && git diff --name-only "$BEFORE" "$AFTER" | grep -qx '.github/workflows/indexnow.yml'; then
                 git ls-files '*.html' > indexnow-files.txt
               fi
@@ -54,13 +55,14 @@ jobs:
           echo "HTML files selected:"
           cat indexnow-files.txt || true
 
-      - name: Submit URLs to IndexNow
+      - name: Submit indexable URLs to IndexNow
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
           import json
           import os
+          import re
           import sys
           import urllib.error
           import urllib.parse
@@ -77,27 +79,76 @@ jobs:
           except FileNotFoundError:
               paths = []
 
-          urls = []
-          seen = set()
-          for path in paths:
-              if path == "404.html" or path.endswith("/404.html"):
-                  continue
-
+          def public_url(path):
               if path == "index.html":
                   public_path = "/"
               elif path.endswith("/index.html"):
                   public_path = "/" + path[:-len("index.html")]
               else:
                   public_path = "/" + path
-
               public_path = urllib.parse.quote(public_path, safe="/%-._~")
-              url = origin + public_path
+              return origin + public_path
+
+          def normalize_url(url):
+              parts = urllib.parse.urlsplit(url)
+              path = parts.path or "/"
+              return urllib.parse.urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, "", ""))
+
+          def should_skip_existing(path, url):
+              if path == "404.html" or path.endswith("/404.html"):
+                  return True, "404 page"
+
+              # Deleted files must still be submitted so IndexNow can learn that
+              # the old URL disappeared.
+              if not os.path.isfile(path):
+                  return False, "deleted URL"
+
+              try:
+                  with open(path, "r", encoding="utf-8", errors="replace") as f:
+                      html = f.read()
+              except OSError as exc:
+                  print(f"Could not inspect {path}: {exc}; submitting it.")
+                  return False, "inspection failed"
+
+              meta_tags = re.findall(r"<meta\b[^>]*>", html, flags=re.IGNORECASE | re.DOTALL)
+              for tag in meta_tags:
+                  lower = tag.lower()
+                  if re.search(r"\bname\s*=\s*(['\"])robots\1", lower) and "noindex" in lower:
+                      return True, "meta robots noindex"
+                  if re.search(r"\bhttp-equiv\s*=\s*(['\"])refresh\1", lower):
+                      return True, "meta refresh redirect"
+
+              link_tags = re.findall(r"<link\b[^>]*>", html, flags=re.IGNORECASE | re.DOTALL)
+              for tag in link_tags:
+                  lower = tag.lower()
+                  if not re.search(r"\brel\s*=\s*(['\"])canonical\1", lower):
+                      continue
+                  href_match = re.search(r"\bhref\s*=\s*(['\"])(.*?)\1", tag, flags=re.IGNORECASE | re.DOTALL)
+                  if not href_match:
+                      continue
+                  canonical = urllib.parse.urljoin(origin + "/", href_match.group(2).strip())
+                  canonical_parts = urllib.parse.urlsplit(canonical)
+                  if canonical_parts.netloc.lower() == host.lower() and normalize_url(canonical) != normalize_url(url):
+                      return True, f"canonical points to {canonical}"
+                  break
+
+              return False, "indexable"
+
+          urls = []
+          seen = set()
+          for path in paths:
+              url = public_url(path)
+              skip, reason = should_skip_existing(path, url)
+              if skip:
+                  print(f"Skipping {url}: {reason}")
+                  continue
               if url not in seen:
                   seen.add(url)
                   urls.append(url)
+                  print(f"Queueing {url}: {reason}")
 
           if not urls:
-              print("No HTML URLs changed; nothing to submit.")
+              print("No eligible HTML URLs changed; nothing to submit.")
               sys.exit(0)
 
           print(f"Submitting {len(urls)} URL(s) to IndexNow")
