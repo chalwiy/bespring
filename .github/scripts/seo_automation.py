@@ -83,34 +83,105 @@ def tracked_html_files():
     return sorted(set(line.strip() for line in output.splitlines() if line.strip()))
 
 
+def html_lastmod_dates(paths):
+    """Return the latest Git commit date (YYYY-MM-DD) for each current HTML file."""
+    wanted = set(paths)
+    dates = {}
+    marker = "@@BESPRING_DATE@@"
+
+    # One Git history traversal is much faster than running `git log -1`
+    # separately for thousands of HTML files. --no-renames makes a rename
+    # expose the new path at the rename commit, which is the right lastmod for
+    # the current URL.
+    output = subprocess.check_output(
+        [
+            "git",
+            "log",
+            "--no-renames",
+            f"--format={marker}%cs",
+            "--name-only",
+            "--diff-filter=ACMR",
+            "--",
+            "*.html",
+        ],
+        text=True,
+        errors="replace",
+    )
+
+    current_date = None
+    for raw_line in output.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        if line.startswith(marker):
+            current_date = line[len(marker):].strip()
+            continue
+        path = line.replace("\\", "/")
+        if current_date and path in wanted and path not in dates:
+            dates[path] = current_date
+            if len(dates) == len(wanted):
+                break
+
+    missing = wanted - dates.keys()
+    if missing:
+        # This should be rare (for example, unusual shallow history). Fall back
+        # per file so sitemap generation still succeeds with accurate dates.
+        for path in sorted(missing):
+            try:
+                date = subprocess.check_output(
+                    ["git", "log", "-1", "--format=%cs", "--", path],
+                    text=True,
+                    errors="replace",
+                ).strip()
+            except subprocess.CalledProcessError:
+                date = ""
+            if date:
+                dates[path] = date
+            else:
+                print(f"Warning: no Git lastmod date found for {path}; omitting <lastmod>.")
+
+    return dates
+
+
 def generate_sitemap(output_path="sitemap.xml"):
-    urls = []
+    paths = tracked_html_files()
+    lastmods = html_lastmod_dates(paths)
+    entries = {}
     skipped = []
-    for path in tracked_html_files():
+
+    for path in paths:
         url = public_url(path)
         include, reason = inspect_html(path, url, allow_deleted=False)
         if include:
-            urls.append(url)
+            date = lastmods.get(path)
+            # If two tracked files somehow map to the same public URL, keep the
+            # newest real modification date for that URL.
+            previous = entries.get(url)
+            if previous is None or (date and (not previous or date > previous)):
+                entries[url] = date
         else:
             skipped.append((path, reason))
 
-    urls = sorted(set(urls))
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ]
-    for url in urls:
-        lines.extend([
-            "  <url>",
-            f"    <loc>{escape(url)}</loc>",
-            "  </url>",
-        ])
+    for url in sorted(entries):
+        lines.append("  <url>")
+        lines.append(f"    <loc>{escape(url)}</loc>")
+        if entries[url]:
+            lines.append(f"    <lastmod>{entries[url]}</lastmod>")
+        lines.append("  </url>")
     lines.append("</urlset>")
 
     with open(output_path, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines) + "\n")
 
-    print(f"Generated {output_path} with {len(urls)} URL(s); skipped {len(skipped)} non-indexable page(s).")
+    with_lastmod = sum(1 for date in entries.values() if date)
+    print(
+        f"Generated {output_path} with {len(entries)} URL(s), "
+        f"{with_lastmod} lastmod date(s); skipped {len(skipped)} non-indexable page(s)."
+    )
     for path, reason in skipped:
         print(f"Skipping sitemap entry {path}: {reason}")
 
