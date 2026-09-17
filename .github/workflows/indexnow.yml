@@ -1,4 +1,4 @@
-name: Submit changed pages to IndexNow
+name: SEO sitemap and IndexNow
 
 on:
   push:
@@ -7,10 +7,11 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  pages: write
 
 jobs:
-  submit-indexnow:
+  seo-maintenance:
     runs-on: ubuntu-latest
     env:
       SITE_HOST: www.bespringchem.com
@@ -24,7 +25,66 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Build URL list
+      - name: Generate sitemap.xml
+        run: python3 .github/scripts/seo_automation.py sitemap
+
+      - name: Commit sitemap when changed
+        id: sitemap
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- sitemap.xml; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "sitemap.xml is already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "Update sitemap automatically [skip ci]"
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Rebuild GitHub Pages after sitemap update
+        if: steps.sitemap.outputs.changed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          success=false
+          for attempt in 1 2 3 4 5 6 7 8; do
+            code=$(curl -sS -o /tmp/pages-response.json -w "%{http_code}" \
+              -X POST \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds")
+
+            if [ "$code" = "201" ] || [ "$code" = "202" ]; then
+              echo "Requested a GitHub Pages rebuild for the updated sitemap."
+              success=true
+              break
+            fi
+
+            if [ "$code" = "409" ]; then
+              echo "A Pages build is already running; retrying..."
+              sleep 15
+              continue
+            fi
+
+            echo "GitHub Pages rebuild request failed with HTTP $code"
+            cat /tmp/pages-response.json || true
+            exit 1
+          done
+
+          if [ "$success" != "true" ]; then
+            echo "Could not request a Pages rebuild after retries."
+            exit 1
+          fi
+
+      - name: Build changed URL list
         shell: bash
         run: |
           set -euo pipefail
@@ -39,148 +99,19 @@ jobs:
             if [ -z "$BEFORE" ] || printf '%s' "$BEFORE" | grep -Eq '^0+$'; then
               git ls-files '*.html' > indexnow-files.txt
             else
-              # --no-renames makes a rename appear as delete + add so both the old
-              # URL and the new URL can be reported to IndexNow.
               git diff --name-only --no-renames --diff-filter=ACMDR "$BEFORE" "$AFTER" -- '*.html' > indexnow-files.txt || true
 
-              # When this workflow itself is installed/changed and no HTML changed,
-              # submit the current indexable site once as a validation run.
-              if [ ! -s indexnow-files.txt ] && git diff --name-only "$BEFORE" "$AFTER" | grep -qx '.github/workflows/indexnow.yml'; then
+              # Validate the IndexNow filter over the whole current site when
+              # this workflow or its helper script changes.
+              if [ ! -s indexnow-files.txt ] && git diff --name-only "$BEFORE" "$AFTER" | grep -Eq '^\.github/(workflows/indexnow\.yml|scripts/seo_automation\.py)$'; then
                 git ls-files '*.html' > indexnow-files.txt
               fi
             fi
           fi
 
           sort -u indexnow-files.txt -o indexnow-files.txt
-          echo "HTML files selected:"
+          echo "HTML files selected for IndexNow:"
           cat indexnow-files.txt || true
 
       - name: Submit indexable URLs to IndexNow
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 - <<'PY'
-          import json
-          import os
-          import re
-          import sys
-          import urllib.error
-          import urllib.parse
-          import urllib.request
-
-          host = os.environ["SITE_HOST"]
-          origin = os.environ["SITE_ORIGIN"].rstrip("/")
-          key = os.environ["INDEXNOW_KEY"]
-          key_location = os.environ["INDEXNOW_KEY_LOCATION"]
-
-          try:
-              with open("indexnow-files.txt", "r", encoding="utf-8") as f:
-                  paths = [line.strip().lstrip("./") for line in f if line.strip()]
-          except FileNotFoundError:
-              paths = []
-
-          def public_url(path):
-              if path == "index.html":
-                  public_path = "/"
-              elif path.endswith("/index.html"):
-                  public_path = "/" + path[:-len("index.html")]
-              else:
-                  public_path = "/" + path
-              public_path = urllib.parse.quote(public_path, safe="/%-._~")
-              return origin + public_path
-
-          def normalize_url(url):
-              parts = urllib.parse.urlsplit(url)
-              path = parts.path or "/"
-              return urllib.parse.urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, "", ""))
-
-          def should_skip_existing(path, url):
-              if path == "404.html" or path.endswith("/404.html"):
-                  return True, "404 page"
-
-              # Deleted files must still be submitted so IndexNow can learn that
-              # the old URL disappeared.
-              if not os.path.isfile(path):
-                  return False, "deleted URL"
-
-              try:
-                  with open(path, "r", encoding="utf-8", errors="replace") as f:
-                      html = f.read()
-              except OSError as exc:
-                  print(f"Could not inspect {path}: {exc}; submitting it.")
-                  return False, "inspection failed"
-
-              meta_tags = re.findall(r"<meta\b[^>]*>", html, flags=re.IGNORECASE | re.DOTALL)
-              for tag in meta_tags:
-                  lower = tag.lower()
-                  if re.search(r"\bname\s*=\s*(['\"])robots\1", lower) and "noindex" in lower:
-                      return True, "meta robots noindex"
-                  if re.search(r"\bhttp-equiv\s*=\s*(['\"])refresh\1", lower):
-                      return True, "meta refresh redirect"
-
-              link_tags = re.findall(r"<link\b[^>]*>", html, flags=re.IGNORECASE | re.DOTALL)
-              for tag in link_tags:
-                  lower = tag.lower()
-                  if not re.search(r"\brel\s*=\s*(['\"])canonical\1", lower):
-                      continue
-                  href_match = re.search(r"\bhref\s*=\s*(['\"])(.*?)\1", tag, flags=re.IGNORECASE | re.DOTALL)
-                  if not href_match:
-                      continue
-                  canonical = urllib.parse.urljoin(origin + "/", href_match.group(2).strip())
-                  canonical_parts = urllib.parse.urlsplit(canonical)
-                  if canonical_parts.netloc.lower() == host.lower() and normalize_url(canonical) != normalize_url(url):
-                      return True, f"canonical points to {canonical}"
-                  break
-
-              return False, "indexable"
-
-          urls = []
-          seen = set()
-          for path in paths:
-              url = public_url(path)
-              skip, reason = should_skip_existing(path, url)
-              if skip:
-                  print(f"Skipping {url}: {reason}")
-                  continue
-              if url not in seen:
-                  seen.add(url)
-                  urls.append(url)
-                  print(f"Queueing {url}: {reason}")
-
-          if not urls:
-              print("No eligible HTML URLs changed; nothing to submit.")
-              sys.exit(0)
-
-          print(f"Submitting {len(urls)} URL(s) to IndexNow")
-
-          # IndexNow accepts up to 10,000 URLs in one batch request.
-          for start in range(0, len(urls), 10000):
-              batch = urls[start:start + 10000]
-              payload = {
-                  "host": host,
-                  "key": key,
-                  "keyLocation": key_location,
-                  "urlList": batch,
-              }
-              body = json.dumps(payload).encode("utf-8")
-              request = urllib.request.Request(
-                  "https://api.indexnow.org/indexnow",
-                  data=body,
-                  headers={"Content-Type": "application/json; charset=utf-8"},
-                  method="POST",
-              )
-
-              try:
-                  with urllib.request.urlopen(request, timeout=30) as response:
-                      status = response.status
-                      text = response.read().decode("utf-8", errors="replace")
-                      print(f"IndexNow HTTP {status}: {text or 'OK'}")
-                      if status not in (200, 202):
-                          raise RuntimeError(f"Unexpected IndexNow status: {status}")
-              except urllib.error.HTTPError as exc:
-                  detail = exc.read().decode("utf-8", errors="replace")
-                  print(f"IndexNow HTTP {exc.code}: {detail}", file=sys.stderr)
-                  raise
-
-          print("IndexNow submission completed successfully.")
-          PY
+        run: python3 .github/scripts/seo_automation.py indexnow indexnow-files.txt
