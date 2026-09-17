@@ -1,0 +1,135 @@
+name: Submit changed pages to IndexNow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit-indexnow:
+    runs-on: ubuntu-latest
+    env:
+      SITE_HOST: www.bespringchem.com
+      SITE_ORIGIN: https://www.bespringchem.com
+      INDEXNOW_KEY: 425a4655a3dc49f59e4e5bcfebc27999
+      INDEXNOW_KEY_LOCATION: https://www.bespringchem.com/425a4655a3dc49f59e4e5bcfebc27999.txt
+
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Build URL list
+        id: urls
+        shell: bash
+        run: |
+          set -euo pipefail
+          : > indexnow-files.txt
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            git ls-files '*.html' > indexnow-files.txt
+          else
+            BEFORE="${{ github.event.before }}"
+            AFTER="${{ github.sha }}"
+
+            if [ -z "$BEFORE" ] || printf '%s' "$BEFORE" | grep -Eq '^0+$'; then
+              git ls-files '*.html' > indexnow-files.txt
+            else
+              git diff --name-only --diff-filter=ACMDR "$BEFORE" "$AFTER" -- '*.html' > indexnow-files.txt || true
+
+              # When this workflow is first installed/changed and no HTML changed,
+              # submit the current site once so IndexNow has an initial URL set.
+              if [ ! -s indexnow-files.txt ] && git diff --name-only "$BEFORE" "$AFTER" | grep -qx '.github/workflows/indexnow.yml'; then
+                git ls-files '*.html' > indexnow-files.txt
+              fi
+            fi
+          fi
+
+          sort -u indexnow-files.txt -o indexnow-files.txt
+          echo "HTML files selected:"
+          cat indexnow-files.txt || true
+
+      - name: Submit URLs to IndexNow
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+
+          host = os.environ["SITE_HOST"]
+          origin = os.environ["SITE_ORIGIN"].rstrip("/")
+          key = os.environ["INDEXNOW_KEY"]
+          key_location = os.environ["INDEXNOW_KEY_LOCATION"]
+
+          try:
+              with open("indexnow-files.txt", "r", encoding="utf-8") as f:
+                  paths = [line.strip().lstrip("./") for line in f if line.strip()]
+          except FileNotFoundError:
+              paths = []
+
+          urls = []
+          seen = set()
+          for path in paths:
+              if path == "404.html" or path.endswith("/404.html"):
+                  continue
+
+              if path == "index.html":
+                  public_path = "/"
+              elif path.endswith("/index.html"):
+                  public_path = "/" + path[:-len("index.html")]
+              else:
+                  public_path = "/" + path
+
+              public_path = urllib.parse.quote(public_path, safe="/%-._~")
+              url = origin + public_path
+              if url not in seen:
+                  seen.add(url)
+                  urls.append(url)
+
+          if not urls:
+              print("No HTML URLs changed; nothing to submit.")
+              sys.exit(0)
+
+          print(f"Submitting {len(urls)} URL(s) to IndexNow")
+
+          # IndexNow accepts up to 10,000 URLs in one batch request.
+          for start in range(0, len(urls), 10000):
+              batch = urls[start:start + 10000]
+              payload = {
+                  "host": host,
+                  "key": key,
+                  "keyLocation": key_location,
+                  "urlList": batch,
+              }
+              body = json.dumps(payload).encode("utf-8")
+              request = urllib.request.Request(
+                  "https://api.indexnow.org/indexnow",
+                  data=body,
+                  headers={"Content-Type": "application/json; charset=utf-8"},
+                  method="POST",
+              )
+
+              try:
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      status = response.status
+                      text = response.read().decode("utf-8", errors="replace")
+                      print(f"IndexNow HTTP {status}: {text or 'OK'}")
+                      if status not in (200, 202):
+                          raise RuntimeError(f"Unexpected IndexNow status: {status}")
+              except urllib.error.HTTPError as exc:
+                  detail = exc.read().decode("utf-8", errors="replace")
+                  print(f"IndexNow HTTP {exc.code}: {detail}", file=sys.stderr)
+                  raise
+
+          print("IndexNow submission completed successfully.")
+          PY
