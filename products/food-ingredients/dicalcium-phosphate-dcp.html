@@ -52,6 +52,8 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
 .bs-product-sample-standalone{width:calc(100% - 40px);max-width:560px;margin:28px auto}
 </style>
 <link rel="alternate" hreflang="en" href="https://www.bespringchem.com/products/food-ingredients/dicalcium-phosphate-dcp.html"><link rel="alternate" hreflang="zh-CN" href="https://www.bespringchem.com/zh-cn/products/food-ingredients/dicalcium-phosphate-dcp.html"><link rel="alternate" hreflang="zh-TW" href="https://www.bespringchem.com/zh-tw/products/food-ingredients/dicalcium-phosphate-dcp.html"><link rel="alternate" hreflang="es" href="https://www.bespringchem.com/es/products/food-ingredients/dicalcium-phosphate-dcp.html"><link rel="alternate" hreflang="pt-BR" href="https://www.bespringchem.com/pt/products/food-ingredients/dicalcium-phosphate-dcp.html"><link rel="alternate" hreflang="ru" href="https://www.bespringchem.com/ru/products/food-ingredients/dicalcium-phosphate-dcp.html"><link rel="alternate" hreflang="de" href="https://www.bespringchem.com/de/products/food-ingredients/dicalcium-phosphate-dcp.html"><link rel="alternate" hreflang="ar" href="https://www.bespringchem.com/ar/products/food-ingredients/dicalcium-phosphate-dcp.html"><link rel="alternate" hreflang="x-default" href="https://www.bespringchem.com/products/food-ingredients/dicalcium-phosphate-dcp.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","@id":"https://www.bespringchem.com/products/food-ingredients/dicalcium-phosphate-dcp.html#product","name":"Food Grade Dicalcium Phosphate Anhydrous","alternateName":["DCP anhydrous","Calcium hydrogen phosphate anhydrous","E341(ii)"],"description":"Food grade anhydrous dicalcium phosphate qualified by hydration state, calcium and phosphorus basis and particle properties.","url":"https://www.bespringchem.com/products/food-ingredients/dicalcium-phosphate-dcp.html","image":"https://www.bespringchem.com/images/product-samples/dicalcium-phosphate-anhydrous-dcp.webp","brand":{"@type":"Brand","name":"Bespring Chemical"},"additionalProperty":[{"@type":"PropertyValue","name":"CAS number","value":"7757-93-9"},{"@type":"PropertyValue","name":"Formula","value":"CaHPO4"},{"@type":"PropertyValue","name":"Hydration form","value":"Anhydrous"}]}</script>
+<script defer src="../../js/site-analytics.js"></script>
 </head>
 
 <body>
@@ -481,7 +483,7 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
         quoteStatus.textContent = "Sending your request…";
 
         emailjs.sendForm("service_eim9osc", "template_z7mkti2", quoteForm)
-          .then(function () {
+          .then(function () {window.BespringAnalytics?.lead();
             quoteStatus.textContent = "Thank you. Your DCP quote request has been sent successfully.";
             quoteForm.reset();
             quoteForm.elements.product.value = "Food Grade Dicalcium Phosphate Anhydrous (DCP)";

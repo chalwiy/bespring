@@ -53,6 +53,8 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
 .bs-product-sample-standalone{width:calc(100% - 40px);max-width:560px;margin:28px auto}
 </style>
 <link rel="alternate" hreflang="en" href="https://www.bespringchem.com/products/food-ingredients/sodium-hexametaphosphate-shmp.html"><link rel="alternate" hreflang="zh-CN" href="https://www.bespringchem.com/zh-cn/products/food-ingredients/sodium-hexametaphosphate-shmp.html"><link rel="alternate" hreflang="zh-TW" href="https://www.bespringchem.com/zh-tw/products/food-ingredients/sodium-hexametaphosphate-shmp.html"><link rel="alternate" hreflang="es" href="https://www.bespringchem.com/es/products/food-ingredients/sodium-hexametaphosphate-shmp.html"><link rel="alternate" hreflang="pt-BR" href="https://www.bespringchem.com/pt/products/food-ingredients/sodium-hexametaphosphate-shmp.html"><link rel="alternate" hreflang="ru" href="https://www.bespringchem.com/ru/products/food-ingredients/sodium-hexametaphosphate-shmp.html"><link rel="alternate" hreflang="de" href="https://www.bespringchem.com/de/products/food-ingredients/sodium-hexametaphosphate-shmp.html"><link rel="alternate" hreflang="ar" href="https://www.bespringchem.com/ar/products/food-ingredients/sodium-hexametaphosphate-shmp.html"><link rel="alternate" hreflang="x-default" href="https://www.bespringchem.com/products/food-ingredients/sodium-hexametaphosphate-shmp.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","@id":"https://www.bespringchem.com/products/food-ingredients/sodium-hexametaphosphate-shmp.html#product","name":"Food Grade Sodium Hexametaphosphate","alternateName":["SHMP","Glassy sodium polyphosphate","E452(i)"],"description":"Food grade SHMP supplied as a glassy sodium polyphosphate and qualified by phosphate distribution, P2O5 basis, inactive phosphate and solution profile.","url":"https://www.bespringchem.com/products/food-ingredients/sodium-hexametaphosphate-shmp.html","image":"https://www.bespringchem.com/images/product-samples/sodium-hexametaphosphate-shmp.webp","brand":{"@type":"Brand","name":"Bespring Chemical"},"additionalProperty":[{"@type":"PropertyValue","name":"CAS number","value":"10124-56-8"},{"@type":"PropertyValue","name":"Food additive number","value":"E452(i) / INS 452(i)"},{"@type":"PropertyValue","name":"Commercial identity","value":"Glassy sodium polyphosphate; not a single pure six-unit molecule"}]}</script>
+<script defer src="../../js/site-analytics.js"></script>
 </head>
 
 <body>
@@ -515,7 +517,7 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
         quoteStatus.textContent = "Sending your request…";
 
         emailjs.sendForm("service_eim9osc", "template_z7mkti2", quoteForm)
-          .then(function () {
+          .then(function () {window.BespringAnalytics?.lead();
             quoteStatus.textContent = "Thank you. Your SHMP quote request has been sent successfully.";
             quoteForm.reset();
             quoteForm.elements.product.value = "Food Grade Sodium Hexametaphosphate (SHMP)";

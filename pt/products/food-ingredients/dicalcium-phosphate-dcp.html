@@ -43,6 +43,7 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
 .bs-product-sample-caption{margin:10px 4px 0;font-size:13px;line-height:1.6;color:#53675d;text-align:start}
 .bs-product-sample-standalone{width:calc(100% - 40px);max-width:560px;margin:28px auto}
 </style>
+<script defer src="../../../js/site-analytics.js"></script>
 </head>
 
 <body>
@@ -84,7 +85,7 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
                 WhatsApp
             </a>
 
-            <div class="bs-seo-language" aria-label="Language selection"><a href="../../../products/food-ingredients/dicalcium-phosphate-dcp.html" lang="en">EN</a><a href="../../../zh-cn/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="zh-CN">简</a><a href="../../../zh-tw/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="zh-TW">繁</a><a href="../../../es/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="es">ES</a><a href="dicalcium-phosphate-dcp.html" lang="pt-BR" class="active" aria-current="page">PT</a><a href="../../../ru/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="ru">RU</a><a href="../../../de/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="de">DE</a><a href="../../../ar/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="ar">AR</a></div>
+            <div class="bs-seo-language" aria-label="Seleção de idioma"><a href="../../../products/food-ingredients/dicalcium-phosphate-dcp.html" lang="en">EN</a><a href="../../../zh-cn/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="zh-CN">简</a><a href="../../../zh-tw/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="zh-TW">繁</a><a href="../../../es/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="es">ES</a><a href="dicalcium-phosphate-dcp.html" lang="pt-BR" class="active" aria-current="page">PT</a><a href="../../../ru/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="ru">RU</a><a href="../../../de/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="de">DE</a><a href="../../../ar/products/food-ingredients/dicalcium-phosphate-dcp.html" lang="ar">AR</a></div>
 
         </div>
 
@@ -174,7 +175,7 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
         <a href="#forms">Forms</a>
         <a href="#applications">Aplicações</a>
         <a href="#specifications">Especificacaos</a>
-        <a href="#faq">FAQ</a>
+        <a href="#faq">Perguntas frequentes</a>
         <a href="#request-quote">Cotação</a>
       </div>
     </nav>
@@ -184,8 +185,8 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
         <div class="bs-citric-section__intro">
           <p class="bs-citric-kicker">Visao geral do produto</p>
           <h2>O que é fosfato dicálcico de grau alimentício?</h2>
-          <p>Fosfato dicálcico (DCP) é o sal de cálcio do ácido fosfórico conhecido quimicamente como hidrogenofosfato de cálcio ou fosfato de cálcio dibásico. A sua designação internacional de aditivo alimentar é INS 341(ii), podendo ser fornecida sob a forma de CaHPO anidra<sub>4</sub> CaHPO di-hidratado<sub>4</sub>·2H<sub>2</sub>O.</p>
-          <p>O DCP é pouco solúvel em água. Essa propriedade, juntamente com seu teor de cálcio e fósforo, faz com que o grau, tamanho de partículas e hidratação formam importantes variáveis de compra. Os compradores devem corresponder às especificações do processo e às regras do mercado de destino.</p>
+          <p>Fosfato dicálcico (DCP) é o sal de cálcio do ácido fosfórico conhecido quimicamente como hidrogenofosfato de cálcio ou fosfato de cálcio dibásico. A sua designação internacional de aditivo alimentar é INS 341(ii), podendo ser fornecida sob a forma de CaHPO<sub>4</sub> anidro ou CaHPO<sub>4</sub>·2H<sub>2</sub>O di-hidratado.</p>
+          <p>O DCP é pouco solúvel em água. Essa propriedade, juntamente com seu teor de cálcio e fósforo, faz com que o grau, tamanho de partículas e hidratação formam importantes variáveis de compra. Os compradores devem corresponder às especificações do processo e às regras do mercado-alvo.</p>
         </div>
         <aside class="bs-citric-callout">
           <h3>Resumo de compras</h3>
@@ -234,7 +235,7 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
         <div class="bs-citric-heading">
           <p class="bs-citric-kicker">Funções de processamento de alimentos</p>
           <h2>Aplicações comuns de classe alimentar DCP</h2>
-          <p>Os níveis reais de utilização e as categorias de alimentos permitidas dependem da formulação e do mercado de destino. Completar ensaios técnicos e revisão regulatória antes do uso comercial.</p>
+          <p>Os níveis reais de utilização e as categorias de alimentos permitidas dependem da formulação e do mercado-alvo. Completar ensaios técnicos e revisão regulatória antes do uso comercial.</p>
         </div>
         <div class="bs-citric-apps">
           <article><i class="fas fa-bread-slice" aria-hidden="true"></i><h3>Leavening systems</h3><p>Um componente de fosfato de cálcio em formulações de padaria e fermento selecionados onde o comportamento de reação controlada é necessário.</p></article>
@@ -451,7 +452,7 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
         quoteStatus.textContent = "Enviando sua solicotação…";
 
         emailjs.sendForm("service_eim9osc", "template_z7mkti2", quoteForm)
-          .then(function () {
+          .then(function () {window.BespringAnalytics?.lead();
             quoteStatus.textContent = "Obrigado. Sua solicotação de cotação foi enviada com sucesso.";
             quoteForm.reset();
             quoteForm.elements.product.value="Grau alimentício fosfato dicálcico (DCP)";
