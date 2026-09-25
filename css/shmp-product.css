@@ -109,6 +109,14 @@
 .bs-shmp-resources span{margin-bottom:12px;color:var(--bs-shmp-green);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
 .bs-shmp-resources strong{margin-bottom:7px;color:var(--bs-shmp-ink);font-size:17px}
 .bs-shmp-resources small{color:var(--bs-shmp-muted);font-size:13px;line-height:1.55}
+.bs-shmp-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.bs-shmp-evidence-grid figure{overflow:hidden;margin:0;border:1px solid var(--bs-shmp-line);border-radius:12px;background:#fff;box-shadow:0 10px 28px rgba(21,51,41,.05)}
+.bs-shmp-evidence-grid img{display:block;width:100%;height:280px;object-fit:cover;background:#f1f5f2}
+.bs-shmp-evidence-grid figure:nth-child(1) img{object-position:center 47%}
+.bs-shmp-evidence-grid figure:nth-child(2) img{object-position:center 47%}
+.bs-shmp-evidence-grid figure:nth-child(3) img{object-position:center 48%}
+.bs-shmp-evidence-grid figcaption{display:grid;gap:5px;padding:17px 19px;color:var(--bs-shmp-muted);font-size:13px;line-height:1.55}
+.bs-shmp-evidence-grid strong{color:var(--bs-shmp-ink);font-size:15px}
 .bs-shmp-reviewed{margin-top:20px;color:var(--bs-shmp-muted);font-size:11px}
 .bs-shmp-handling{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start;margin-top:84px;padding:48px;border-radius:14px;background:var(--bs-shmp-warm)}
 .bs-shmp-handling h2{margin-bottom:0;font-size:clamp(28px,3vw,38px)}
@@ -181,6 +189,8 @@
   .bs-shmp-overview{gap:32px}
   .bs-shmp-compare{grid-template-columns:1fr}
   .bs-shmp-chain{grid-template-columns:1fr}
+  .bs-shmp-evidence-grid{grid-template-columns:1fr}
+  .bs-shmp-evidence-grid img{height:clamp(260px,68vw,420px)}
   .bs-shmp-handling,.bs-shmp-storage{gap:30px;padding:32px}
   .bs-shmp-handling{margin-top:65px}
   .bs-shmp-quote{padding:72px 0}
@@ -195,7 +205,7 @@
   .bs-shmp-proof__grid>div,.bs-shmp-proof__grid>div:nth-child(2){border-right:0;border-bottom:1px solid var(--bs-shmp-line)}
   .bs-shmp-proof__grid>div:last-child{border-bottom:0}
   .bs-shmp-apps{grid-template-columns:1fr}
-  .bs-shmp-selection,.bs-shmp-resources{grid-template-columns:1fr}
+  .bs-shmp-selection,.bs-shmp-resources,.bs-shmp-evidence-grid{grid-template-columns:1fr}
   .bs-shmp-apps article{min-height:0}
   .bs-shmp-compare article,.bs-shmp-callout,.bs-shmp-handling,.bs-shmp-storage,.bs-shmp-form{padding:24px}
   .bs-shmp-form__row{grid-template-columns:1fr}

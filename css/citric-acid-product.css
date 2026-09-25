@@ -94,6 +94,17 @@
 .bs-ca-checklist h3{margin-bottom:7px;font-size:18px}
 .bs-ca-checklist p{margin:0;color:var(--bs-citric-muted);font-size:14px;line-height:1.65}
 .bs-ca-boundary{margin-top:18px;padding:18px 21px;border-left:3px solid var(--bs-citric-green);color:#395148;background:var(--bs-citric-green-pale);font-size:14px}
+.bs-ca-logistics__grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(28px,5vw,62px);align-items:center;padding:24px;border:1px solid var(--bs-citric-line);border-radius:14px;background:var(--bs-citric-warm)}
+.bs-ca-logistics__grid figure{margin:0}
+.bs-ca-logistics__grid img{display:block;width:100%;max-height:580px;border-radius:9px;object-fit:cover;object-position:center 44%;background:#e9e8e1}
+.bs-ca-logistics__grid figcaption{padding:12px 2px 0;color:var(--bs-citric-muted);font-size:12px;line-height:1.55}
+.bs-ca-logistics__copy h3{margin:0 0 10px;color:var(--bs-citric-ink);font-size:22px}
+.bs-ca-logistics__copy>p{margin:0;color:var(--bs-citric-muted);font-size:15px}
+.bs-ca-logistics__copy ul{margin:20px 0 0;padding:0;list-style:none}
+.bs-ca-logistics__copy li{display:flex;gap:14px;padding:15px 0;border-top:1px solid #e5e0d4}
+.bs-ca-logistics__copy li i{margin-top:4px;color:var(--bs-citric-green)}
+.bs-ca-logistics__copy li span{color:var(--bs-citric-muted);font-size:13px;line-height:1.55}
+.bs-ca-logistics__copy li strong{display:block;margin-bottom:3px;color:var(--bs-citric-ink);font-size:14px}
 .bs-ca-resources{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .bs-ca-resources a{display:flex;min-height:165px;flex-direction:column;padding:24px;border:1px solid var(--bs-citric-line);border-radius:10px;background:#fff;transition:border-color 180ms ease,transform 180ms ease,box-shadow 180ms ease}
 .bs-ca-resources a:hover{border-color:#9ec7aa;box-shadow:0 12px 30px rgba(21,51,41,.07);transform:translateY(-3px)}
@@ -161,8 +172,9 @@
 .bs-sb-form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.bs-sb-form-grid article{padding:27px;border:1px solid #dce8df;border-radius:10px;background:#fff}.bs-sb-form-grid i{display:grid;width:44px;height:44px;place-items:center;margin-bottom:17px;border-radius:50%;color:#18783a;background:#edf7ef}.bs-sb-form-grid h3{margin-bottom:8px;font-size:17px}.bs-sb-form-grid p{margin:0;color:#667a73;font-size:13px;line-height:1.68}.bs-sb-qualification{display:flex;gap:18px;align-items:flex-start;margin-top:20px;padding:22px 25px;border-left:4px solid #18783a;border-radius:4px 10px 10px 4px;background:#edf7ef}.bs-sb-qualification strong{flex:0 0 175px;color:#153329;font-size:14px}.bs-sb-qualification p{margin:0;color:#60746c;font-size:13px;line-height:1.68}
 .bs-sb-selection{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.bs-sb-selection article{padding:25px;border:1px solid #dce8df;border-radius:10px;background:#fff}.bs-sb-selection h3{margin-bottom:8px;font-size:17px}.bs-sb-selection h3 a{color:#153329;text-decoration:underline;text-decoration-color:#a8c8b1;text-underline-offset:4px}.bs-sb-selection p{margin:0;color:#667a73;font-size:13px;line-height:1.65}
 .bs-sb-related{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.bs-sb-related a{display:flex;min-height:175px;flex-direction:column;padding:23px;border:1px solid #dce8df;border-radius:10px;background:#fff;transition:border-color 180ms ease,transform 180ms ease,box-shadow 180ms ease}.bs-sb-related a:hover{border-color:#9ec7aa;box-shadow:0 12px 30px rgba(21,51,41,.07);transform:translateY(-3px)}.bs-sb-related span{margin-bottom:12px;color:#18783a;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.bs-sb-related strong{margin-bottom:7px;color:#153329;font-size:16px;line-height:1.4}.bs-sb-related small{color:#667a73;font-size:12px;line-height:1.55}
+.bs-sb-hero-media figcaption{padding:10px 2px 0;color:#63766f;font-size:12px;line-height:1.55}.bs-sb-evidence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.bs-sb-evidence-grid figure{overflow:hidden;margin:0;border:1px solid var(--bs-citric-line);border-radius:12px;background:#fff;box-shadow:0 10px 28px rgba(21,51,41,.05)}.bs-sb-evidence-grid img{display:block;width:100%;height:290px;object-fit:cover;background:#f1f5f2}.bs-sb-evidence-grid figure:nth-child(1) img,.bs-sb-evidence-grid figure:nth-child(2) img{object-position:center 47%}.bs-sb-evidence-grid figure:nth-child(3) img{object-position:center 45%}.bs-sb-evidence-grid figcaption{display:grid;gap:5px;padding:17px 19px;color:var(--bs-citric-muted);font-size:13px;line-height:1.55}.bs-sb-evidence-grid strong{color:var(--bs-citric-ink);font-size:15px}
 @media(max-width:920px){.bs-sb-factor-grid,.bs-sb-apps,.bs-sb-selection,.bs-sb-related{grid-template-columns:repeat(2,1fr)}.bs-sb-risk{grid-template-columns:1fr}}
-@media(max-width:780px){.bs-sb-spec-summary{grid-template-columns:repeat(2,1fr)}.bs-sb-spec-summary>div:nth-child(2){border-right:0}.bs-sb-spec-summary>div:nth-child(-n+2){border-bottom:1px solid #dce8df}.bs-sb-form-grid{grid-template-columns:1fr}}
+@media(max-width:780px){.bs-sb-spec-summary{grid-template-columns:repeat(2,1fr)}.bs-sb-spec-summary>div:nth-child(2){border-right:0}.bs-sb-spec-summary>div:nth-child(-n+2){border-bottom:1px solid #dce8df}.bs-sb-form-grid,.bs-sb-evidence-grid{grid-template-columns:1fr}.bs-sb-evidence-grid img{height:clamp(260px,68vw,420px)}}
 @media(max-width:540px){.bs-sb-page .bs-citric-hero h1{font-size:clamp(32px,9.7vw,44px)}.bs-sb-factor-grid,.bs-sb-apps,.bs-sb-selection,.bs-sb-related,.bs-sb-spec-summary{grid-template-columns:1fr}.bs-sb-spec-summary>div,.bs-sb-spec-summary>div:nth-child(2){border-right:0;border-bottom:1px solid #dce8df}.bs-sb-spec-summary>div:last-child{border-bottom:0}.bs-sb-risk{padding:27px 22px}.bs-sb-qualification{display:block}.bs-sb-qualification strong{display:block;margin-bottom:7px}.bs-sb-system-note{padding:21px}}
 
 /* Potassium sorbate page extensions. */
@@ -174,8 +186,9 @@
 .bs-ps-comparison{margin-top:20px;padding:24px 27px;border-left:4px solid #c18a24;border-radius:4px 10px 10px 4px;background:#fff9ec}.bs-ps-comparison h3,.bs-ps-reference h3{margin-bottom:6px;font-size:17px}.bs-ps-comparison p,.bs-ps-reference p{margin:0;color:#665c49;font-size:13px;line-height:1.72}.bs-ps-reference{margin-top:18px;padding:23px 26px;border:1px solid #dce8df;border-radius:10px;background:#f8fbf9}.bs-ps-reference p{color:#667a73}.bs-ps-reference a{color:#105c2b;font-weight:750;text-decoration:underline;text-decoration-color:#a8c8b1;text-underline-offset:3px}.bs-ps-reviewed{margin-top:18px;color:#667a73;font-size:11px}
 .bs-ps-selection,.bs-ps-qualification{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.bs-ps-selection article{padding:25px;border:1px solid #dce8df;border-radius:10px;background:#fff}.bs-ps-selection h3{margin-bottom:8px;font-size:17px}.bs-ps-selection h3 a{color:#153329;text-decoration:underline;text-decoration-color:#a8c8b1;text-underline-offset:4px}.bs-ps-selection p,.bs-ps-qualification p{margin:0;color:#667a73;font-size:13px;line-height:1.65}.bs-ps-qualification article{padding:24px;border-top:3px solid #a9cdb3;border-radius:4px 4px 10px 10px;background:#f8fbf9}.bs-ps-qualification span{color:#18783a;font-size:11px;font-weight:800;letter-spacing:.09em}.bs-ps-qualification h3{margin:13px 0 8px;font-size:17px}
 .bs-ps-related{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.bs-ps-related a{display:flex;min-height:175px;flex-direction:column;padding:23px;border:1px solid #dce8df;border-radius:10px;background:#fff;transition:border-color 180ms ease,transform 180ms ease,box-shadow 180ms ease}.bs-ps-related a:hover{border-color:#9ec7aa;box-shadow:0 12px 30px rgba(21,51,41,.07);transform:translateY(-3px)}.bs-ps-related span{margin-bottom:12px;color:#18783a;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.bs-ps-related strong{margin-bottom:7px;color:#153329;font-size:16px;line-height:1.4}.bs-ps-related small{color:#667a73;font-size:12px;line-height:1.55}
+.bs-ps-hero-media figcaption{padding:10px 2px 0;color:#63766f;font-size:12px;line-height:1.55}.bs-ps-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.bs-ps-evidence-grid figure{overflow:hidden;margin:0;border:1px solid var(--bs-citric-line);border-radius:12px;background:#fff}.bs-ps-evidence-grid img{display:block;width:100%;height:300px;object-fit:cover}.bs-ps-evidence-grid figcaption{display:grid;gap:5px;padding:17px 19px;color:var(--bs-citric-muted);font-size:13px;line-height:1.55}.bs-ps-evidence-grid strong{color:var(--bs-citric-ink);font-size:15px}
 @media(max-width:920px){.bs-ps-factor-grid,.bs-ps-apps,.bs-ps-selection,.bs-ps-qualification,.bs-ps-related{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:780px){.bs-ps-spec-summary{grid-template-columns:repeat(2,1fr)}.bs-ps-spec-summary>div:nth-child(2){border-right:0}.bs-ps-spec-summary>div:nth-child(-n+2){border-bottom:1px solid #dce8df}}
+@media(max-width:780px){.bs-ps-spec-summary{grid-template-columns:repeat(2,1fr)}.bs-ps-spec-summary>div:nth-child(2){border-right:0}.bs-ps-spec-summary>div:nth-child(-n+2){border-bottom:1px solid #dce8df}.bs-ps-evidence-grid{grid-template-columns:1fr}.bs-ps-evidence-grid img{height:clamp(260px,68vw,420px)}}
 @media(max-width:540px){.bs-ps-page .bs-citric-hero h1{font-size:clamp(32px,9.7vw,44px)}.bs-ps-factor-grid,.bs-ps-apps,.bs-ps-selection,.bs-ps-qualification,.bs-ps-related,.bs-ps-spec-summary{grid-template-columns:1fr}.bs-ps-spec-summary>div,.bs-ps-spec-summary>div:nth-child(2){border-right:0;border-bottom:1px solid #dce8df}.bs-ps-spec-summary>div:last-child{border-bottom:0}.bs-ps-fermentation{display:block}.bs-ps-fermentation strong{display:block;margin-bottom:7px}.bs-ps-system-note{padding:21px}}
 
 /* Trisodium citrate dihydrate page extensions. */
@@ -202,6 +215,8 @@
   .bs-citric-overview{gap:32px}
   .bs-citric-compare{grid-template-columns:1fr}
   .bs-ca-checklist{grid-template-columns:1fr}
+  .bs-ca-logistics__grid{grid-template-columns:1fr}
+  .bs-ca-logistics__grid img{max-height:520px}
   .bs-citric-handling{gap:30px;margin-top:65px;padding:32px}
   .bs-citric-quote{padding:72px 0}
 }
@@ -354,6 +369,31 @@
 .bs-cmc-support-grid article{padding:26px;border:1px solid var(--bs-citric-line);border-radius:10px;background:#fff}
 .bs-cmc-support-grid h3{margin-bottom:8px;font-size:18px}
 .bs-cmc-support-grid p{margin:0;color:var(--bs-citric-muted);font-size:14px;line-height:1.65}
+.bs-cmc-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.bs-cmc-evidence-grid figure{overflow:hidden;margin:0;border:1px solid var(--bs-citric-line);border-radius:12px;background:#fff;box-shadow:0 10px 28px rgba(21,51,41,.05)}
+.bs-cmc-evidence-grid img{display:block;width:100%;height:300px;object-fit:cover;background:#f1f5f2}
+.bs-cmc-evidence-grid figure:nth-child(1) img{object-position:center 46%}
+.bs-cmc-evidence-grid figure:nth-child(2) img{object-position:center 52%}
+.bs-cmc-evidence-grid figure:nth-child(3) img{object-position:center 44%}
+.bs-cmc-evidence-grid figcaption{display:grid;gap:5px;padding:17px 19px;color:var(--bs-citric-muted);font-size:13px;line-height:1.55}
+.bs-cmc-evidence-grid strong{color:var(--bs-citric-ink);font-size:15px}
+.bs-dcp-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.bs-dcp-evidence-grid figure{overflow:hidden;margin:0;border:1px solid var(--bs-citric-line);border-radius:12px;background:#fff;box-shadow:0 10px 28px rgba(21,51,41,.05)}
+.bs-dcp-evidence-grid img{display:block;width:100%;height:280px;object-fit:cover;background:#f1f5f2}
+.bs-dcp-evidence-grid figure:nth-child(1) img{object-position:center 48%}
+.bs-dcp-evidence-grid figure:nth-child(2) img{object-position:center 48%}
+.bs-dcp-evidence-grid figure:nth-child(3) img{object-position:center 42%}
+.bs-dcp-evidence-grid figcaption{display:grid;gap:5px;padding:17px 19px;color:var(--bs-citric-muted);font-size:13px;line-height:1.55}
+.bs-dcp-evidence-grid strong{color:var(--bs-citric-ink);font-size:15px}
+.bs-cp-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.bs-cp-evidence-grid figure{overflow:hidden;margin:0;border:1px solid var(--bs-citric-line);border-radius:12px;background:#fff;box-shadow:0 10px 28px rgba(21,51,41,.05)}
+.bs-cp-evidence-grid img{display:block;width:100%;height:300px;object-fit:cover;background:#f1f5f2}
+.bs-cp-evidence-grid figure:nth-child(1) img{object-position:center 47%}
+.bs-cp-evidence-grid figure:nth-child(2) img{object-position:center 47%}
+.bs-cp-evidence-grid figure:nth-child(3) img{object-position:center 48%}
+.bs-cp-evidence-grid figure:nth-child(4) img{object-position:center 48%}
+.bs-cp-evidence-grid figcaption{display:grid;gap:5px;padding:17px 19px;color:var(--bs-citric-muted);font-size:13px;line-height:1.55}
+.bs-cp-evidence-grid strong{color:var(--bs-citric-ink);font-size:15px}
 .bs-cmc-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .bs-cmc-related-card{display:grid;gap:7px;min-height:176px;padding:24px;border:1px solid var(--bs-citric-line);border-radius:10px;color:var(--bs-citric-ink);background:#fff;transition:border-color 180ms ease,transform 180ms ease,box-shadow 180ms ease}
 .bs-cmc-related-card:hover{border-color:#9ec7aa;box-shadow:0 12px 30px rgba(21,51,41,.07);transform:translateY(-3px)}
@@ -373,6 +413,12 @@
   .bs-cmc-spec-summary>div:nth-child(2){border-right:0}
   .bs-cmc-spec-summary>div:nth-child(-n+2){border-bottom:1px solid #dce8df}
   .bs-cmc-support-grid{grid-template-columns:1fr}
+  .bs-cmc-evidence-grid{grid-template-columns:1fr}
+  .bs-cmc-evidence-grid img{height:clamp(260px,68vw,420px)}
+  .bs-dcp-evidence-grid{grid-template-columns:1fr}
+  .bs-dcp-evidence-grid img{height:clamp(260px,68vw,420px)}
+  .bs-cp-evidence-grid{grid-template-columns:1fr}
+  .bs-cp-evidence-grid img{height:clamp(260px,68vw,420px)}
 }
 @media(max-width:540px){
   .bs-cmc-page .bs-citric-hero h1{font-size:clamp(31px,9.4vw,43px)}
