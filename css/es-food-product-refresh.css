@@ -1,0 +1,30 @@
+/* Spanish product pages migrated from the legacy editorial layout. */
+.bs-es-modernized .bs-citric-hero__media img{aspect-ratio:1;object-fit:contain;background:#fff}
+.bs-es-modernized .bs-es-product-content{padding-bottom:84px}
+.bs-es-modernized .bs-citric-section{border-bottom:1px solid #e3ebe5}
+.bs-es-modernized .bs-citric-section:last-child{border-bottom:0}
+.bs-es-modernized .bs-citric-heading{max-width:850px}
+.bs-es-modernized .bs-es-faq{max-width:850px;padding:20px 24px;border:1px solid #dce8df;border-radius:12px;background:#f7faf8}
+.bs-es-modernized .bs-es-faq summary{cursor:pointer;color:#173f2d;font-weight:700}
+.bs-es-modernized .bs-es-faq p{margin:14px 0 0}
+.bs-es-modernized .bs-es-faq-note{max-width:850px;color:#53675d}
+.bs-es-modernized .bs-es-contact-card{padding:26px;border:1px solid rgba(255,255,255,.3);border-radius:14px;background:rgba(255,255,255,.09)}
+.bs-es-modernized .bs-es-contact-card p{margin:0 0 18px}
+.bs-es-modernized .bs-es-contact-card a:not(.bs-citric-btn){color:#fff;text-decoration:underline}
+@media(max-width:700px){.bs-es-modernized .bs-es-product-content{padding-bottom:60px}.bs-es-modernized .bs-es-contact-card{padding:20px}}
+.bs-es-modernized .bs-es-module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px}
+.bs-es-modernized .bs-es-module-grid article{padding:22px;border:1px solid #dce8df;border-radius:12px;background:#f7faf8}
+.bs-es-modernized .bs-es-module-grid h3{margin:0 0 10px;font-size:18px}
+.bs-es-modernized .bs-es-module-grid p{margin:0;font-size:14px}
+.bs-es-modernized .bs-es-evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:25px}
+.bs-es-modernized .bs-es-evidence-grid figure{margin:0;padding:14px;border:1px solid #dce8df;border-radius:12px;background:#f7faf8}
+.bs-es-modernized .bs-es-evidence-grid img{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;border-radius:8px}
+.bs-es-modernized .bs-es-evidence-grid figcaption{margin-top:10px;color:#53675d;font-size:13px;line-height:1.6}
+.bs-es-modernized .bs-es-callout{max-width:850px;margin-top:24px;padding:22px;border-left:4px solid #18783a;border-radius:8px;background:#edf7ef}
+.bs-es-modernized .bs-es-callout p{margin:8px 0 0}
+.bs-es-modernized .bs-citric-hero__media img{height:auto;max-height:460px;aspect-ratio:1;object-fit:contain}
+@media(max-width:700px){.bs-es-modernized .bs-es-module-grid,.bs-es-modernized .bs-es-evidence-grid{grid-template-columns:1fr}}
+.bs-es-modernized .bs-es-related-links{margin-top:24px;padding:18px 22px;border:1px solid #dce8df;border-radius:10px;background:#f9fbf9}
+.bs-es-modernized .bs-es-related-links strong{color:#173f2d}
+.bs-es-modernized .bs-es-related-links ul{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0 0;padding-left:20px}
+.bs-es-modernized .bs-es-related-links a{color:#18783a;text-decoration:underline;text-underline-offset:2px}

@@ -694,3 +694,155 @@
 .bs-pea-page .bs-pea-hero-media figcaption{padding:10px 2px 0;color:#63766f;font-size:12px;line-height:1.55}.bs-pea-page .bs-pea-hero-media img{width:100%;min-height:350px;object-fit:cover}.bs-pea-grade-grid,.bs-pea-app-grid,.bs-pea-performance-grid,.bs-pea-risk-grid,.bs-pea-compare{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:24px}.bs-pea-grade-grid article,.bs-pea-app-grid article,.bs-pea-performance-grid article,.bs-pea-risk-grid article,.bs-pea-compare article{padding:25px;border:1px solid #dce8df;border-radius:10px;background:#fff}.bs-pea-grade-grid article>span,.bs-pea-performance-grid article>span{display:inline-block;margin-bottom:11px;color:#18783a;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.bs-pea-grade-grid h3,.bs-pea-app-grid h3,.bs-pea-performance-grid h3,.bs-pea-risk-grid h3,.bs-pea-compare h3{margin:0 0 9px;color:#153329;font-size:18px}.bs-pea-grade-grid p,.bs-pea-app-grid p,.bs-pea-performance-grid p,.bs-pea-risk-grid p,.bs-pea-compare p{color:#60736c;line-height:1.65}.bs-pea-compare a,.bs-pea-reference-grid a{font-weight:750}.bs-pea-basis,.bs-pea-ph{display:grid;grid-template-columns:minmax(230px,.34fr) 1fr;gap:22px;margin-top:22px;padding:24px 26px;border-radius:10px;color:#eaf4ed;background:#153329}.bs-pea-basis strong,.bs-pea-ph strong{color:#fff}.bs-pea-basis span,.bs-pea-ph span{line-height:1.7}.bs-pea-spec-table{min-width:1080px}.bs-pea-spec-table tbody th{width:17%}.bs-pea-spec-table td:last-child{width:35%}.bs-pea-audit{margin-top:20px;padding:23px 26px;border-left:4px solid #c18a24;border-radius:4px 10px 10px 4px;background:#fff9ec}.bs-pea-audit h3{margin:0 0 7px;color:#493b20}.bs-pea-audit p{margin:0;color:#665c49;line-height:1.7}.bs-pea-reference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}.bs-pea-reference-grid article{padding:25px;border-radius:10px;background:#f4f8f5}.bs-pea-reference-grid h3{margin:0 0 9px}.bs-pea-reference-grid p{color:#60736c;line-height:1.65}.bs-pea-reviewed{margin-top:18px;color:#687a73;font-size:13px}@media(max-width:980px){.bs-pea-grade-grid,.bs-pea-app-grid,.bs-pea-performance-grid,.bs-pea-risk-grid,.bs-pea-compare{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:780px){.bs-pea-reference-grid{grid-template-columns:1fr}.bs-pea-basis,.bs-pea-ph{grid-template-columns:1fr}.bs-pea-page .bs-pea-hero-media img{min-height:280px}}@media(max-width:540px){.bs-pea-grade-grid,.bs-pea-app-grid,.bs-pea-performance-grid,.bs-pea-risk-grid,.bs-pea-compare{grid-template-columns:1fr}.bs-pea-page .bs-pea-hero-media img{min-height:220px}}
 /* Crystalline maltitol: form identity, solids balance, crystallization and claim control */
 .bs-maltitol-page .bs-maltitol-hero-media figcaption{padding:10px 2px 0;color:#63766f;font-size:12px;line-height:1.55}.bs-maltitol-page .bs-maltitol-hero-media img{width:100%;min-height:350px;object-fit:cover}.bs-maltitol-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px}.bs-maltitol-form-grid article{padding:28px;border:1px solid #dce8df;border-radius:11px;background:#fff}.bs-maltitol-form-grid article>span,.bs-maltitol-process-grid article>span{display:inline-block;margin-bottom:11px;color:#18783a;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.bs-maltitol-form-grid h3,.bs-maltitol-app-grid h3,.bs-maltitol-process-grid h3,.bs-maltitol-claim-grid h3,.bs-maltitol-compare h3{margin:0 0 9px;color:#153329;font-size:18px}.bs-maltitol-form-grid p,.bs-maltitol-app-grid p,.bs-maltitol-process-grid p,.bs-maltitol-claim-grid p,.bs-maltitol-compare p{color:#60736c;line-height:1.65}.bs-maltitol-form-grid ul{margin:15px 0 0;padding-left:20px;color:#536a61}.bs-maltitol-form-grid li{margin:7px 0}.bs-maltitol-app-grid,.bs-maltitol-process-grid,.bs-maltitol-claim-grid,.bs-maltitol-compare{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:24px}.bs-maltitol-app-grid article,.bs-maltitol-process-grid article,.bs-maltitol-claim-grid article,.bs-maltitol-compare article{padding:25px;border:1px solid #dce8df;border-radius:10px;background:#fff}.bs-maltitol-compare a,.bs-maltitol-reference-grid a{font-weight:750}.bs-maltitol-boundary,.bs-maltitol-trial{display:grid;grid-template-columns:minmax(230px,.34fr) 1fr;gap:22px;margin-top:22px;padding:24px 26px;border-radius:10px;color:#eaf4ed;background:#153329}.bs-maltitol-boundary strong,.bs-maltitol-trial strong{color:#fff}.bs-maltitol-boundary span,.bs-maltitol-trial span{line-height:1.7}.bs-maltitol-spec-table{min-width:1000px}.bs-maltitol-spec-table tbody th{width:18%}.bs-maltitol-spec-table td:last-child{width:38%}.bs-maltitol-audit{margin-top:20px;padding:23px 26px;border-left:4px solid #c18a24;border-radius:4px 10px 10px 4px;background:#fff9ec}.bs-maltitol-audit h3{margin:0 0 7px;color:#493b20}.bs-maltitol-audit p{margin:0;color:#665c49;line-height:1.7}.bs-maltitol-reference-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:22px}.bs-maltitol-reference-grid article{padding:25px;border-radius:10px;background:#f4f8f5}.bs-maltitol-reference-grid h3{margin:0 0 9px}.bs-maltitol-reference-grid p{color:#60736c;line-height:1.65}.bs-maltitol-reviewed{margin-top:18px;color:#687a73;font-size:13px}@media(max-width:980px){.bs-maltitol-app-grid,.bs-maltitol-process-grid,.bs-maltitol-claim-grid,.bs-maltitol-compare,.bs-maltitol-reference-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:780px){.bs-maltitol-form-grid,.bs-maltitol-reference-grid{grid-template-columns:1fr}.bs-maltitol-boundary,.bs-maltitol-trial{grid-template-columns:1fr}.bs-maltitol-page .bs-maltitol-hero-media img{min-height:280px}}@media(max-width:540px){.bs-maltitol-app-grid,.bs-maltitol-process-grid,.bs-maltitol-claim-grid,.bs-maltitol-compare{grid-template-columns:1fr}.bs-maltitol-page .bs-maltitol-hero-media img{min-height:220px}}
+
+/* Sodium propionate image presentation; scoped to this product page. */
+.bs-sprop-page .bs-sprop-hero-media img{width:100%;height:auto;object-fit:contain}
+.bs-sprop-page .bs-sprop-hero-media figcaption{padding:10px 2px 0;color:#63766f;font-size:12px;line-height:1.55}
+.bs-sprop-page .bs-sprop-logistics{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.65fr);align-items:center;gap:24px;overflow:hidden;margin:0;border:1px solid #dce8df;border-radius:12px;background:#f8fbf9}
+.bs-sprop-page .bs-sprop-logistics img{display:block;width:100%;height:440px;object-fit:contain;background:#edf2ee}
+.bs-sprop-page .bs-sprop-logistics figcaption{display:grid;gap:8px;padding:24px;color:#60736c;font-size:14px;line-height:1.65}
+.bs-sprop-page .bs-sprop-logistics strong{color:#153329;font-size:18px}
+@media(max-width:780px){.bs-sprop-page .bs-sprop-logistics{grid-template-columns:1fr}.bs-sprop-page .bs-sprop-logistics img{height:auto;max-height:480px}.bs-sprop-page .bs-sprop-logistics figcaption{padding:20px}}
+
+/* Sorbic acid packaging reference only; no other product pages are affected. */
+.bs-sorbic-page .bs-sorbic-packing{margin:1.25rem 0 0;display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:1.25rem;align-items:center;background:#f7faf8;border:1px solid #dce8df;border-radius:14px;padding:1.1rem}
+.bs-sorbic-page .bs-sorbic-packing img{display:block;width:100%;height:auto;border-radius:9px;object-fit:contain}
+.bs-sorbic-page .bs-sorbic-packing figcaption{display:grid;gap:.5rem;line-height:1.6;color:#53675d}
+.bs-sorbic-page .bs-sorbic-packing figcaption strong{color:#173f2d}
++@media(max-width:700px){.bs-sorbic-page .bs-sorbic-packing{grid-template-columns:1fr}.bs-sorbic-page .bs-sorbic-packing img{max-width:420px;margin:auto}}
+
+/* SAPP sample reference: scoped to this product page. */
+.bs-sapp-page .bs-sapp-sample{margin:1.25rem 0 0;display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:1.25rem;align-items:center;background:#f7faf8;border:1px solid #dce8df;border-radius:14px;padding:1.1rem}
+.bs-sapp-page .bs-sapp-sample img{display:block;width:100%;height:auto;border-radius:9px;object-fit:contain}
+.bs-sapp-page .bs-sapp-sample figcaption{display:grid;gap:.5rem;line-height:1.6;color:#53675d}
+.bs-sapp-page .bs-sapp-sample figcaption strong{color:#173f2d}
+@media(max-width:700px){.bs-sapp-page .bs-sapp-sample{grid-template-columns:1fr}.bs-sapp-page .bs-sapp-sample img{max-width:420px;margin:auto}}
+
+/* TKPP image references: scoped to this product page. */
+.bs-tkpp-page .bs-tkpp-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.bs-tkpp-page .bs-tkpp-image-grid figure{margin:0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-tkpp-page .bs-tkpp-image-grid img{display:block;width:100%;height:320px;object-fit:contain;border-radius:9px}
+.bs-tkpp-page .bs-tkpp-image-grid figcaption{display:grid;gap:.5rem;margin-top:.8rem;color:#53675d;line-height:1.6}
+.bs-tkpp-page .bs-tkpp-image-grid figcaption strong{color:#173f2d}
+@media(max-width:700px){.bs-tkpp-page .bs-tkpp-image-grid{grid-template-columns:1fr}.bs-tkpp-page .bs-tkpp-image-grid img{height:auto;max-height:430px}}
+
+/* MKP image references: scoped to the MKP page. */
+.bs-mkp-page .bs-mkp-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.bs-mkp-page .bs-mkp-image-grid figure,.bs-mkp-page .bs-mkp-warehouse{margin:0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-mkp-page .bs-mkp-image-grid img{display:block;width:100%;height:320px;object-fit:contain;border-radius:9px}
+.bs-mkp-page .bs-mkp-image-grid figcaption,.bs-mkp-page .bs-mkp-warehouse figcaption{display:grid;gap:.5rem;margin-top:.8rem;color:#53675d;line-height:1.6}
+.bs-mkp-page .bs-mkp-image-grid figcaption strong,.bs-mkp-page .bs-mkp-warehouse figcaption strong{color:#173f2d}
+.bs-mkp-page .bs-mkp-warehouse{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:1.25rem;align-items:center;margin-top:1.25rem}
+.bs-mkp-page .bs-mkp-warehouse img{display:block;width:100%;height:auto;max-height:400px;object-fit:contain;border-radius:9px}
+@media(max-width:700px){.bs-mkp-page .bs-mkp-image-grid,.bs-mkp-page .bs-mkp-warehouse{grid-template-columns:1fr}.bs-mkp-page .bs-mkp-image-grid img{height:auto;max-height:430px}.bs-mkp-page .bs-mkp-warehouse img{max-height:430px}}
+
+/* Xanthan gum image references: scoped to this product page. */
+.bs-xanthan-page .bs-xanthan-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.bs-xanthan-page .bs-xanthan-image-grid figure,.bs-xanthan-page .bs-xanthan-warehouse{margin:0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-xanthan-page .bs-xanthan-image-grid img{display:block;width:100%;height:320px;object-fit:contain;border-radius:9px}
+.bs-xanthan-page .bs-xanthan-image-grid figcaption,.bs-xanthan-page .bs-xanthan-warehouse figcaption{display:grid;gap:.5rem;margin-top:.8rem;color:#53675d;line-height:1.6}
+.bs-xanthan-page .bs-xanthan-image-grid figcaption strong,.bs-xanthan-page .bs-xanthan-warehouse figcaption strong{color:#173f2d}
+.bs-xanthan-page .bs-xanthan-warehouse{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:1.25rem;align-items:center;margin-top:1.25rem}
+.bs-xanthan-page .bs-xanthan-warehouse img{display:block;width:100%;height:auto;max-height:400px;object-fit:contain;border-radius:9px}
+@media(max-width:700px){.bs-xanthan-page .bs-xanthan-image-grid,.bs-xanthan-page .bs-xanthan-warehouse{grid-template-columns:1fr}.bs-xanthan-page .bs-xanthan-image-grid img{height:auto;max-height:430px}.bs-xanthan-page .bs-xanthan-warehouse img{max-height:430px}}
+
+/* MCP monohydrate image references: scoped to this product page. */
+.bs-mcp-page .bs-mcp-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.bs-mcp-page .bs-mcp-image-grid figure{margin:0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-mcp-page .bs-mcp-image-grid img{display:block;width:100%;height:340px;object-fit:contain;border-radius:9px}
+.bs-mcp-page .bs-mcp-image-grid figcaption{display:grid;gap:.5rem;margin-top:.8rem;color:#53675d;line-height:1.6}
+.bs-mcp-page .bs-mcp-image-grid figcaption strong{color:#173f2d}
+@media(max-width:700px){.bs-mcp-page .bs-mcp-image-grid{grid-template-columns:1fr}.bs-mcp-page .bs-mcp-image-grid img{height:auto;max-height:430px}}
+
+/* TSPP image references: scoped to this product page. */
+.bs-tspp-page .bs-tspp-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.bs-tspp-page .bs-tspp-image-grid figure,.bs-tspp-page .bs-tspp-warehouse{margin:0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-tspp-page .bs-tspp-image-grid img{display:block;width:100%;height:320px;object-fit:contain;border-radius:9px}
+.bs-tspp-page .bs-tspp-image-grid figcaption,.bs-tspp-page .bs-tspp-warehouse figcaption{display:grid;gap:.5rem;margin-top:.8rem;color:#53675d;line-height:1.6}
+.bs-tspp-page .bs-tspp-image-grid figcaption strong,.bs-tspp-page .bs-tspp-warehouse figcaption strong{color:#173f2d}
+.bs-tspp-page .bs-tspp-warehouse{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:1.25rem;align-items:center;margin-top:1.25rem}
+.bs-tspp-page .bs-tspp-warehouse img{display:block;width:100%;height:auto;max-height:400px;object-fit:contain;border-radius:9px}
+@media(max-width:700px){.bs-tspp-page .bs-tspp-image-grid,.bs-tspp-page .bs-tspp-warehouse{grid-template-columns:1fr}.bs-tspp-page .bs-tspp-image-grid img{height:auto;max-height:430px}.bs-tspp-page .bs-tspp-warehouse img{max-height:430px}}
+
+/* DKP image references: scoped to this product page. */
+.bs-dkp-page .bs-dkp-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.bs-dkp-page .bs-dkp-image-grid figure,.bs-dkp-page .bs-dkp-warehouse{margin:0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-dkp-page .bs-dkp-image-grid img{display:block;width:100%;height:320px;object-fit:contain;border-radius:9px}
+.bs-dkp-page .bs-dkp-image-grid figcaption,.bs-dkp-page .bs-dkp-warehouse figcaption{display:grid;gap:.5rem;margin-top:.8rem;color:#53675d;line-height:1.6}
+.bs-dkp-page .bs-dkp-image-grid figcaption strong,.bs-dkp-page .bs-dkp-warehouse figcaption strong{color:#173f2d}
+.bs-dkp-page .bs-dkp-warehouse{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:1.25rem;align-items:center;margin-top:1.25rem}
+.bs-dkp-page .bs-dkp-warehouse img{display:block;width:100%;height:auto;max-height:400px;object-fit:contain;border-radius:9px}
+@media(max-width:700px){.bs-dkp-page .bs-dkp-image-grid,.bs-dkp-page .bs-dkp-warehouse{grid-template-columns:1fr}.bs-dkp-page .bs-dkp-image-grid img{height:auto;max-height:430px}.bs-dkp-page .bs-dkp-warehouse img{max-height:430px}}
+
+/* Carrageenan images: scoped to this product page. */
+.bs-carrageenan-page .bs-carr-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.bs-carrageenan-page .bs-carr-image-grid figure,.bs-carrageenan-page .bs-carr-loading{margin:0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-carrageenan-page .bs-carr-image-grid img{display:block;width:100%;height:320px;object-fit:contain;border-radius:9px}
+.bs-carrageenan-page .bs-carr-image-grid figcaption,.bs-carrageenan-page .bs-carr-loading figcaption{display:grid;gap:.5rem;margin-top:.8rem;color:#53675d;line-height:1.6}
+.bs-carrageenan-page .bs-carr-image-grid figcaption strong,.bs-carrageenan-page .bs-carr-loading figcaption strong{color:#173f2d}
+.bs-carrageenan-page .bs-carr-loading{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:1.25rem;align-items:center;margin-top:1.25rem}
+.bs-carrageenan-page .bs-carr-loading img{display:block;width:100%;height:auto;object-fit:contain;border-radius:9px}
+@media(max-width:700px){.bs-carrageenan-page .bs-carr-image-grid,.bs-carrageenan-page .bs-carr-loading{grid-template-columns:1fr}.bs-carrageenan-page .bs-carr-image-grid img{height:auto;max-height:430px}}
+
+/* Guar gum image references: scoped to this product page. */
+.bs-guar-page .bs-guar-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.bs-guar-page .bs-guar-image-grid figure,.bs-guar-page .bs-guar-warehouse{margin:0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-guar-page .bs-guar-image-grid img{display:block;width:100%;height:320px;object-fit:contain;border-radius:9px}
+.bs-guar-page .bs-guar-image-grid figcaption,.bs-guar-page .bs-guar-warehouse figcaption{display:grid;gap:.5rem;margin-top:.8rem;color:#53675d;line-height:1.6}
+.bs-guar-page .bs-guar-image-grid figcaption strong,.bs-guar-page .bs-guar-warehouse figcaption strong{color:#173f2d}
+.bs-guar-page .bs-guar-warehouse{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:1.25rem;align-items:center;margin-top:1.25rem}
+.bs-guar-page .bs-guar-warehouse img{display:block;width:100%;height:auto;max-height:400px;object-fit:contain;border-radius:9px}
+@media(max-width:700px){.bs-guar-page .bs-guar-image-grid,.bs-guar-page .bs-guar-warehouse{grid-template-columns:1fr}.bs-guar-page .bs-guar-image-grid img{height:auto;max-height:430px}.bs-guar-page .bs-guar-warehouse img{max-height:430px}}
+
+/* Sodium citrate loading reference: scoped to this product page. */
+.bs-sc-page .bs-sc-loading{display:grid;grid-template-columns:minmax(0,480px) minmax(0,1fr);gap:1.25rem;align-items:center;margin:1.25rem 0 0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-sc-page .bs-sc-loading img{display:block;width:100%;height:auto;object-fit:contain;border-radius:9px}
+.bs-sc-page .bs-sc-loading figcaption{display:grid;gap:.5rem;color:#53675d;line-height:1.6}
+.bs-sc-page .bs-sc-loading figcaption strong{color:#173f2d}
+@media(max-width:700px){.bs-sc-page .bs-sc-loading{grid-template-columns:1fr}}
+
+/* Maltitol loading reference: scoped to this product page. */
+.bs-maltitol-page .bs-maltitol-loading{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:1.25rem;align-items:center;margin:1.25rem 0 0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-maltitol-page .bs-maltitol-loading img{display:block;width:100%;height:auto;max-height:480px;object-fit:contain;border-radius:9px}
+.bs-maltitol-page .bs-maltitol-loading figcaption{display:grid;gap:.5rem;color:#53675d;line-height:1.6}
+.bs-maltitol-page .bs-maltitol-loading figcaption strong{color:#173f2d}
+@media(max-width:700px){.bs-maltitol-page .bs-maltitol-loading{grid-template-columns:1fr}}
+
+/* Calcium lactate loading reference: scoped to this product page. */
+.bs-calactate-page .bs-calactate-loading{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:1.25rem;align-items:center;margin:1.25rem 0 0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-calactate-page .bs-calactate-loading img{display:block;width:100%;height:auto;object-fit:contain;border-radius:9px}
+.bs-calactate-page .bs-calactate-loading figcaption{display:grid;gap:.5rem;color:#53675d;line-height:1.6}
+.bs-calactate-page .bs-calactate-loading figcaption strong{color:#173f2d}
+@media(max-width:700px){.bs-calactate-page .bs-calactate-loading{grid-template-columns:1fr}}
+
+/* DATEM pallet reference: scoped to this product page. */
+.bs-datem-page .bs-datem-loading{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:1.25rem;align-items:center;margin:1.25rem 0 0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-datem-page .bs-datem-loading img{display:block;width:100%;height:auto;object-fit:contain;border-radius:9px}
+.bs-datem-page .bs-datem-loading figcaption{display:grid;gap:.5rem;color:#53675d;line-height:1.6}
+.bs-datem-page .bs-datem-loading figcaption strong{color:#173f2d}
+@media(max-width:700px){.bs-datem-page .bs-datem-loading{grid-template-columns:1fr}}
+
+/* Sodium alginate image references: scoped to this product page. */
+.bs-alginate-page .bs-alginate-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.bs-alginate-page .bs-alginate-image-grid figure,.bs-alginate-page .bs-alginate-loading{margin:0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-alginate-page .bs-alginate-image-grid img{display:block;width:100%;height:320px;object-fit:contain;border-radius:9px}
+.bs-alginate-page .bs-alginate-image-grid figcaption,.bs-alginate-page .bs-alginate-loading figcaption{display:grid;gap:.5rem;margin-top:.8rem;color:#53675d;line-height:1.6}
+.bs-alginate-page .bs-alginate-image-grid figcaption strong,.bs-alginate-page .bs-alginate-loading figcaption strong{color:#173f2d}
+.bs-alginate-page .bs-alginate-loading{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:1.25rem;align-items:center;margin-top:1.25rem}
+.bs-alginate-page .bs-alginate-loading img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;border-radius:9px}
+@media(max-width:700px){.bs-alginate-page .bs-alginate-image-grid,.bs-alginate-page .bs-alginate-loading{grid-template-columns:1fr}.bs-alginate-page .bs-alginate-image-grid img{height:auto;max-height:430px}}
+
+/* Vanillin loading reference: scoped to this product page. */
+.bs-vanillin-page .bs-vanillin-loading{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:1.25rem;align-items:center;margin:1.25rem 0 0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-vanillin-page .bs-vanillin-loading img{display:block;width:100%;height:auto;object-fit:contain;border-radius:9px}
+.bs-vanillin-page .bs-vanillin-loading figcaption{display:grid;gap:.5rem;color:#53675d;line-height:1.6}
+.bs-vanillin-page .bs-vanillin-loading figcaption strong{color:#173f2d}
+@media(max-width:700px){.bs-vanillin-page .bs-vanillin-loading{grid-template-columns:1fr}}
+
+/* Silicon dioxide reference photos: scoped to this product page. */
+.bs-silica-page .bs-silica-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.25rem}
+.bs-silica-page .bs-silica-image-grid figure{display:flex;flex-direction:column;gap:.85rem;margin:0;padding:1rem;border:1px solid #dce8df;border-radius:14px;background:#f7faf8}
+.bs-silica-page .bs-silica-image-grid img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:9px}
+.bs-silica-page .bs-silica-image-grid figcaption{display:grid;gap:.35rem;color:#53675d;line-height:1.6}
+.bs-silica-page .bs-silica-image-grid figcaption strong{color:#173f2d}
+@media(max-width:700px){.bs-silica-page .bs-silica-image-grid{grid-template-columns:1fr}}
