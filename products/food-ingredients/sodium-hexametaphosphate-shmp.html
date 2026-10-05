@@ -272,11 +272,11 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
         <div class="bs-shmp-heading">
           <p class="bs-shmp-kicker">Product specification</p>
           <h2>Food grade sodium hexametaphosphate specification</h2>
-          <p>The following limits reproduce a source-specific commercial specification. They are not a universal food-grade SHMP standard; the signed contract specification, agreed methods and batch certificate of analysis govern an order.</p>
+          <p>The following limits are commercial references for the offered grade. They are not a universal food-grade SHMP standard; the signed contract specification, agreed methods and batch certificate of analysis govern an order.</p>
         </div>
         <div class="bs-shmp-table-wrap">
           <table class="bs-shmp-table">
-            <caption>Food grade SHMP — supplied product specification</caption>
+            <caption>Food grade SHMP — commercial reference specification</caption>
             <thead><tr><th scope="col">Test item</th><th scope="col">Specification</th><th scope="col">Unit / condition</th></tr></thead>
             <tbody>
               <tr><th scope="row">Total phosphate as P<sub>2</sub>O<sub>5</sub></th><td>≥ 68.0</td><td>%</td></tr>
@@ -308,8 +308,8 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
           <p>SHMP performance and approval depend on more than total phosphate. Compare the offered source across the parameters that affect identity, formulation and compliance.</p>
         </div>
         <div class="bs-shmp-selection">
-          <article><strong>P<sub>2</sub>O<sub>5</sub> basis</strong><p>Confirm total phosphate, reporting basis and method. The supplied ≥68.0% limit sits within the broader JECFA identity range but remains source-specific.</p></article>
-          <article><strong>Inactive phosphate</strong><p>Review the supplied ≤7.5% limit and method because hydrolysis products and phosphate distribution can help distinguish commercial grades.</p></article>
+          <article><strong>P<sub>2</sub>O<sub>5</sub> basis</strong><p>Confirm total phosphate, reporting basis and method. The commercial ≥68.0% limit sits within the broader JECFA identity range but remains source-specific.</p></article>
+          <article><strong>Inactive phosphate</strong><p>Review the commercial ≤7.5% limit and method because hydrolysis products and phosphate distribution can help distinguish commercial grades.</p></article>
           <article><strong>Solution profile</strong><p>Confirm pH at the stated concentration, dissolution behavior, clarity and particle form against the actual processing sequence.</p></article>
           <article><strong>Contaminants</strong><p>Align fluoride, arsenic, lead/heavy-metal and any destination-specific limits; do not infer compliance from “food grade” wording alone.</p></article>
           <article><strong>Application trial</strong><p>Validate sequestration, emulsification, dispersion and texture response in the complete recipe, including other phosphates and salts.</p></article>
@@ -393,7 +393,7 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
           </details>
           <details>
             <summary>What is the P2O5 content of this SHMP?</summary>
-            <p>The supplied specification states total phosphate as P<sub>2</sub>O<sub>5</sub> at 68.0% minimum and inactive phosphate as P<sub>2</sub>O<sub>5</sub> at 7.5% maximum.</p>
+            <p>The commercial reference specifies total phosphate as P<sub>2</sub>O<sub>5</sub> at 68.0% minimum and inactive phosphate as P<sub>2</sub>O<sub>5</sub> at 7.5% maximum.</p>
           </details>
           <details>
             <summary>Is SHMP the same as INS 452(i)?</summary>
@@ -416,7 +416,7 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
             <p>Ask the sales team for the current specification, TDS, SDS, applicable quality documents, batch COA format and sample availability. State the application and destination market so the relevant information can be reviewed.</p>
           </details>
         </div>
-        <p class="bs-shmp-reviewed">Last substantially reviewed 2026-08-22 by the Bespring Chemical technical and export team. Source-specific commercial claims require internal confirmation before publication.</p>
+        
       </section>
     </div>
 
@@ -510,54 +510,9 @@ img.bs-product-sample-image{display:block!important;width:100%!important;height:
 </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    const hamburger = document.querySelector(".hamburger");
-    const navigation = document.querySelector(".main-nav");
-
-    if (hamburger && navigation) {
-      hamburger.addEventListener("click", function () {
-        const isOpen = navigation.classList.toggle("active");
-        hamburger.setAttribute("aria-expanded", String(isOpen));
-      });
-    }
-
-    const quoteForm = document.getElementById("quote-form");
-    const quoteStatus = document.getElementById("quote-status");
-
-    if (quoteForm) {
-      quoteForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        if (!window.emailjs) {
-          quoteStatus.textContent = "The form service is temporarily unavailable. Please email info@bespringchem.com.";
-          return;
-        }
-
-        const submitButton = quoteForm.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
-        quoteStatus.textContent = "Sending your request…";
-
-        emailjs.sendForm("service_eim9osc", "template_z7mkti2", quoteForm)
-          .then(function () {window.BespringAnalytics?.lead();
-            quoteStatus.textContent = "Thank you. Your SHMP quote request has been sent successfully.";
-            quoteForm.reset();
-            quoteForm.elements.product.value = "Food Grade Sodium Hexametaphosphate (SHMP)";
-          })
-          .catch(function () {
-            quoteStatus.textContent = "The form could not be sent. Please email info@bespringchem.com or try again.";
-          })
-          .finally(function () {
-            submitButton.disabled = false;
-          });
-      });
-
-      if (window.emailjs) {
-        emailjs.init({
+  <script>const h=document.querySelector('.hamburger'),n=document.querySelector('.main-nav');h?.addEventListener('click',()=>{const open=n.classList.toggle('active');h.setAttribute('aria-expanded',String(open))});const f=document.getElementById('quote-form'),s=document.getElementById('quote-status'),product=f.elements.product.value;f.addEventListener('submit',async e=>{e.preventDefault();if(!f.reportValidity())return;if(!window.emailjs){s.textContent='The inquiry service is unavailable. Please email info@bespringchem.com with your requirements.';return}const b=f.querySelector('button[type="submit"]');if(b.disabled)return;b.disabled=true;f.setAttribute('aria-busy','true');s.textContent='Sending your inquiry…';try{await window.emailjs.sendForm('service_eim9osc','template_z7mkti2',f);s.textContent='Your inquiry was sent successfully. Thank you.';f.reset();f.elements.product.value=product;try{window.BespringAnalytics?.lead()}catch{}}catch{s.textContent='Your inquiry could not be sent. Your details are retained; retry or email info@bespringchem.com.'}finally{b.disabled=false;f.removeAttribute('aria-busy')}});if(window.emailjs)emailjs.init({
           publicKey: "evd5fyrngOFOv_NQS",
           limitRate: {id: "shmp-quote", throttle: 10000}
-        });
-      }
-    }
-  </script>
+        });</script>
 </body>
 </html>
