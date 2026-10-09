@@ -1,0 +1,33 @@
+name: SEO regression checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - '.github/scripts/**'
+      - '.github/tests/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Run SEO regression tests
+        run: python3 -m unittest discover -s .github/tests -v
+      - name: Validate full-site sitemap generation
+        run: python3 .github/scripts/seo_automation.py sitemap --output "$RUNNER_TEMP/sitemap.xml"
+      - name: Report sitemap fingerprints
+        run: |
+          sha256sum "$RUNNER_TEMP/sitemap.xml"
+          if [ -f sitemap.xml ]; then sha256sum sitemap.xml; fi

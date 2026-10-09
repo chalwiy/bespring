@@ -4,6 +4,8 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -27,7 +29,8 @@ class SeoHeadParser(HTMLParser):
         if tag == "meta":
             name = a.get("name", "").lower()
             content = a.get("content", "").lower()
-            if name in {"robots", "googlebot", "bingbot"} and "noindex" in content:
+            directives = content.replace(",", " ").split()
+            if name in {"robots", "googlebot", "bingbot"} and {"noindex", "none"}.intersection(directives):
                 self.noindex = True
             if a.get("http-equiv", "").lower() == "refresh":
                 self.refresh = True
@@ -71,7 +74,7 @@ def inspect_html(path, url, allow_deleted=False):
     if parser.refresh:
         return False, "meta refresh redirect"
     if parser.canonical:
-        canonical = urllib.parse.urljoin(SITE_ORIGIN + "/", parser.canonical)
+        canonical = urllib.parse.urljoin(url, parser.canonical)
         if canonical.rstrip("/") != url.rstrip("/"):
             return False, f"canonical points to {canonical}"
 
@@ -79,14 +82,16 @@ def inspect_html(path, url, allow_deleted=False):
 
 
 def tracked_html_files():
-    output = subprocess.check_output(["git", "ls-files", "*.html"], text=True)
-    return sorted(set(line.strip() for line in output.splitlines() if line.strip()))
+    output = subprocess.check_output(["git", "ls-files", "-z", "*.html"]).decode("utf-8")
+    return sorted(set(path for path in output.split("\0") if path))
 
 
 def html_lastmod_dates(paths):
     """Return the latest Git commit date (YYYY-MM-DD) for each current HTML file."""
     wanted = set(paths)
     dates = {}
+    if not wanted:
+        return dates
     marker = "@@BESPRING_DATE@@"
 
     # One Git history traversal is much faster than running `git log -1`
@@ -96,6 +101,7 @@ def html_lastmod_dates(paths):
     output = subprocess.check_output(
         [
             "git",
+            "-c", "core.quotepath=false",
             "log",
             "--no-renames",
             f"--format={marker}%cs",
@@ -105,6 +111,7 @@ def html_lastmod_dates(paths):
             "*.html",
         ],
         text=True,
+        encoding="utf-8",
         errors="replace",
     )
 
@@ -152,6 +159,8 @@ def generate_sitemap(output_path="sitemap.xml"):
     for path in paths:
         url = public_url(path)
         include, reason = inspect_html(path, url, allow_deleted=False)
+        if reason == "missing file" or reason.startswith("inspection failed:"):
+            raise RuntimeError(f"Cannot inspect tracked page {path}: {reason}; existing sitemap was preserved.")
         if include:
             date = lastmods.get(path)
             # If two tracked files somehow map to the same public URL, keep the
@@ -161,6 +170,12 @@ def generate_sitemap(output_path="sitemap.xml"):
                 entries[url] = date
         else:
             skipped.append((path, reason))
+
+    # Refuse to replace a good sitemap with an empty or oversized one.
+    if not entries:
+        raise RuntimeError("No indexable HTML pages found; existing sitemap was preserved.")
+    if len(entries) > 50000:
+        raise RuntimeError("Sitemap exceeds 50,000 URLs; split into a sitemap index first.")
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -174,8 +189,19 @@ def generate_sitemap(output_path="sitemap.xml"):
         lines.append("  </url>")
     lines.append("</urlset>")
 
-    with open(output_path, "w", encoding="utf-8", newline="\n") as f:
-        f.write("\n".join(lines) + "\n")
+    data = ("\n".join(lines) + "\n").encode("utf-8")
+    if len(data) > 52428800:
+        raise RuntimeError("Sitemap exceeds the 50 MB protocol limit.")
+    # Same-directory atomic replacement keeps the old file intact on failure.
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=os.path.dirname(os.path.abspath(output_path)), delete=False) as f:
+            temporary = f.name
+            f.write(data)
+        os.replace(temporary, output_path)
+    finally:
+        if temporary and os.path.exists(temporary):
+            os.unlink(temporary)
 
     with_lastmod = sum(1 for date in entries.values() if date)
     print(
@@ -186,6 +212,33 @@ def generate_sitemap(output_path="sitemap.xml"):
         print(f"Skipping sitemap entry {path}: {reason}")
 
 
+def send_indexnow(request, attempts=4):
+    """Retry transient failures only; invalid keys/payloads must fail visibly."""
+    for attempt in range(attempts):
+        delay = min(2 ** attempt * 5, 60)
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                status = response.status
+                detail = response.read().decode("utf-8", errors="replace")
+                print(f"IndexNow HTTP {status}: {detail or 'OK'}")
+                if status not in (200, 202):
+                    raise RuntimeError(f"Unexpected IndexNow status: {status}")
+                return
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")
+            print(f"IndexNow HTTP {exc.code}: {detail}", file=sys.stderr)
+            if exc.code not in (408, 429, 500, 502, 503, 504) or attempt == attempts - 1:
+                raise
+            retry_after = exc.headers.get("Retry-After", "") if exc.headers else ""
+            if retry_after.isdigit():
+                delay = min(int(retry_after), 60)
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            if attempt == attempts - 1:
+                raise
+        print(f"Transient IndexNow failure; retrying in {delay}s.")
+        time.sleep(delay)
+
+
 def submit_indexnow(file_list):
     key = os.environ["INDEXNOW_KEY"]
     key_location = os.environ["INDEXNOW_KEY_LOCATION"]
@@ -194,11 +247,13 @@ def submit_indexnow(file_list):
         with open(file_list, "r", encoding="utf-8") as f:
             paths = [line.strip().lstrip("./") for line in f if line.strip()]
     except FileNotFoundError:
-        paths = []
+        raise RuntimeError(f"Changed-file list is missing: {file_list}")
 
     urls = []
     seen = set()
     for path in paths:
+        if not path.endswith(".html"):
+            continue
         url = public_url(path)
         include, reason = inspect_html(path, url, allow_deleted=True)
         if not include:
@@ -228,17 +283,7 @@ def submit_indexnow(file_list):
             headers={"Content-Type": "application/json; charset=utf-8"},
             method="POST",
         )
-        try:
-            with urllib.request.urlopen(request, timeout=30) as response:
-                status = response.status
-                text = response.read().decode("utf-8", errors="replace")
-                print(f"IndexNow HTTP {status}: {text or 'OK'}")
-                if status not in (200, 202):
-                    raise RuntimeError(f"Unexpected IndexNow status: {status}")
-        except urllib.error.HTTPError as exc:
-            detail = exc.read().decode("utf-8", errors="replace")
-            print(f"IndexNow HTTP {exc.code}: {detail}", file=sys.stderr)
-            raise
+        send_indexnow(request)
 
     print("IndexNow submission completed successfully.")
 
