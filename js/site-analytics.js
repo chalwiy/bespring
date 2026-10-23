@@ -106,7 +106,7 @@
   host.id = 'bespring-analytics-choice';
   const root = host.attachShadow({ mode: 'open' });
   const style = document.createElement('style');
-  style.textContent = ':host{position:fixed;bottom:12px;left:12px;z-index:2147483000;font:14px/1.5 Arial,sans-serif;color:#172b38;width:370px;max-width:calc(100% - 24px)}section{box-sizing:border-box;background:#fff;border:1px solid #8f9ba2;border-radius:8px;padding:16px;width:100%;max-width:100%;max-height:65vh;overflow:auto;box-shadow:0 2px 12px #0002}section[hidden]{display:none}p{margin:8px 0 12px}strong{font-size:16px}button{font:inherit;cursor:pointer;border:1px solid #647985;border-radius:4px;background:#fff;color:#172b38;padding:8px;margin:3px}button:focus-visible{outline:3px solid #1671a3;outline-offset:2px}.settings{font-size:12px;padding:4px 8px}';
+  style.textContent = ':host{display:block;font:12px/1.5 Arial,sans-serif;color:#d8e7ec;max-width:100%}section{position:fixed;bottom:12px;inset-inline-start:12px;z-index:2147483000;color:#172b38;box-sizing:border-box;background:#fff;border:1px solid #8f9ba2;border-radius:8px;padding:16px;width:370px;max-width:calc(100% - 24px);max-height:65vh;overflow:auto;box-shadow:0 2px 12px #0002}section[hidden]{display:none}p{margin:8px 0 12px}strong{font-size:16px}button{font:inherit;cursor:pointer;border:1px solid #647985;border-radius:4px;background:#fff;color:#172b38;padding:8px;margin:3px}button:focus-visible{outline:3px solid #1671a3;outline-offset:2px}.settings{font-size:12px;padding:4px 0;border:0;background:transparent;color:inherit;min-height:38px}';
   root.appendChild(style);
   const panel = document.createElement('section');
   panel.setAttribute('role', 'region');
@@ -118,11 +118,11 @@
     const button = document.createElement('button'); button.type = 'button'; button.textContent = words[i + 2];
     button.addEventListener('click', () => choose(value)); panel.appendChild(button);
   });
-  panel.hidden = choice !== null;
+  panel.hidden = !production || choice !== null;
   root.appendChild(panel);
   const settings = document.createElement('button'); settings.type = 'button'; settings.className = 'settings'; settings.textContent = words[4];
   settings.addEventListener('click', () => { panel.hidden = !panel.hidden; if (!panel.hidden) panel.querySelector('button').focus(); });
   root.appendChild(settings);
-  document.body.appendChild(host);
+  (document.getElementById('bq-analytics-settings') || document.body).appendChild(host);
   start();
 })();
