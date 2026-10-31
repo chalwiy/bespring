@@ -1,0 +1,10 @@
+/* Localized typography; shared design remains in bq-enterprise.css. */
+html[lang=ja]{font-family:"Noto Sans JP","Yu Gothic",Meiryo,sans-serif}
+html[lang=ko]{font-family:"Noto Sans KR","Malgun Gothic",sans-serif}
+html[lang=th]{font-family:"Noto Sans Thai",Tahoma,sans-serif}
+html:is([lang=ja],[lang=ko],[lang=th]) .bq-main,
+html:is([lang=ja],[lang=ko],[lang=th]) main{line-height:1.75;word-break:normal;overflow-wrap:anywhere}
+html:is([lang=fr],[lang=vi]) :is(h1,h2,h3,.bq-button){overflow-wrap:anywhere}
+html[lang=ko] :is(h1,h2,h3){word-break:keep-all}
+.bq-languages{max-height:min(75vh,650px);overflow-y:auto}
+@media(max-width:700px){html:is([lang=ja],[lang=ko],[lang=th]) h1{line-height:1.3}}

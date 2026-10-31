@@ -8,6 +8,13 @@
   const production = location.protocol === 'https:' && location.hostname === 'www.bespringchem.com';
   const language = (document.documentElement.lang || 'en').toLowerCase();
   const copy = {
+/* five-language-copy */
+    fr: ["Statistiques du site", "Autorisez-vous les cookies Google Analytics pour mesurer les visites et les interactions ? Vous pouvez envoyer une demande sans les accepter.", "Accepter les statistiques", "Refuser les statistiques", "Paramètres des statistiques"],
+    ja: ["アクセス解析", "訪問やサイト内の操作を計測するため、Google Analytics の Cookie の使用を許可しますか？許可しなくてもお問い合わせいただけます。", "解析を許可", "解析を拒否", "解析の設定"],
+    ko: ["웹사이트 분석", "방문 및 사이트 이용을 분석하기 위한 Google Analytics 쿠키를 허용하시겠습니까? 허용하지 않아도 문의를 보낼 수 있습니다.", "분석 허용", "분석 거부", "분석 설정"],
+    vi: ["Thống kê truy cập", "Bạn có cho phép sử dụng cookie Google Analytics để đo lường lượt truy cập và tương tác không? Bạn vẫn có thể gửi yêu cầu mà không cần cho phép.", "Cho phép thống kê", "Từ chối thống kê", "Cài đặt thống kê"],
+    th: ["การวิเคราะห์เว็บไซต์", "คุณอนุญาตให้ใช้คุกกี้ Google Analytics เพื่อวัดการเข้าชมและการใช้งานเว็บไซต์หรือไม่ คุณยังส่งคำสอบถามได้แม้ไม่อนุญาต", "อนุญาตการวิเคราะห์", "ปฏิเสธการวิเคราะห์", "การตั้งค่าการวิเคราะห์"],
+
     en: ['Website analytics', 'May we use Google Analytics cookies to measure visits and site interactions? Your inquiries work without analytics.', 'Allow analytics', 'Reject analytics', 'Analytics settings'],
     es: ['Estadísticas del sitio', '¿Podemos usar cookies de Google Analytics para medir visitas e interacciones? Puede enviar consultas sin aceptar estas cookies.', 'Aceptar estadísticas', 'Rechazar estadísticas', 'Configurar estadísticas'],
     pt: ['Estatísticas do site', 'Podemos usar cookies do Google Analytics para medir visitas e interações? Pode enviar consultas sem aceitar estes cookies.', 'Aceitar estatísticas', 'Recusar estatísticas', 'Configurar estatísticas'],
