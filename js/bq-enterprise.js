@@ -77,3 +77,41 @@ document.querySelectorAll('.bq-table').forEach((region,index)=>{const heading=re
  }
  revealFragment();window.addEventListener('hashchange',revealFragment);
 })();
+
+
+(() => {
+ 'use strict';
+ const input=document.getElementById('catalog-search');
+ if(!input)return;
+ const section=input.closest('section');
+ if(!section)return;
+ const groups=[...section.querySelectorAll('article')].map(article=>({article,rows:[...article.querySelectorAll('li')].filter(li=>li.querySelector('a[href]'))})).filter(group=>group.rows.length);
+ if(!groups.length)return;
+ const fold=value=>String(value).normalize('NFKD').replace(/\p{M}/gu,'').toLowerCase().replace(/[‐‑–—]/g,'-').trim();
+ const root=document.body.dataset.siteRoot||'';
+ const index=new Map((window.BQ_PRODUCT_INDEX||[]).map(product=>[new URL(root+product.href,location.href).pathname,product]));
+ const terms=new Map();
+ groups.forEach(group=>group.rows.forEach(row=>{
+  const link=row.querySelector('a[href]');
+  const product=index.get(new URL(link.href,location.href).pathname);
+  terms.set(row,fold(row.textContent+' '+(product?[product.english,product.aliases,...(product.cas||[])].join(' '):'')));
+ }));
+ const count=section.querySelector('#visible-count');
+ let copy={};
+ try{copy=JSON.parse(document.getElementById('bq-product-data')?.textContent||'{}').copy||{};}catch{}
+ const status=copy.empty?document.createElement('p'):null;
+ if(status){status.setAttribute('role','status');status.setAttribute('aria-live','polite');status.hidden=true;input.parentElement.insertAdjacentElement('afterend',status);}
+ function render(){
+  const tokens=fold(input.value).split(/\s+/).filter(Boolean);
+  let visible=0;
+  groups.forEach(group=>{
+   let matches=0;
+   group.rows.forEach(row=>{const match=tokens.every(token=>terms.get(row).includes(token));row.hidden=!match;if(match){matches++;visible++;}});
+   group.article.hidden=matches===0;
+  });
+  if(count)count.textContent=String(visible);
+  if(status){status.hidden=visible>0;status.textContent=visible?'':copy.empty;}
+ }
+ input.addEventListener('input',render);
+ render();
+})();
